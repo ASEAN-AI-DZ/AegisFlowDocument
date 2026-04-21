@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkaegisflow_docs=self.webpackChunkaegisflow_docs||[]).push([[583],{6866:(e,s,c)=>{c.r(s),c.d(s,{default:()=>n});var u=c(6025),f=c(6540),l=c(6347);function n(){const e=(0,l.W6)(),s=(0,u.A)("/intro");return(0,f.useEffect)(()=>{e.replace(s)},[e,s]),null}}}]);
