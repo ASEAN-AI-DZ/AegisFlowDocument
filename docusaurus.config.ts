@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'AegisFlow AI',
   tagline: 'Nền tảng GIS & Map & AI cho Quản lý Đô thị Thông minh',
-  favicon: 'logo.png',
+  favicon: 'logo_aegis.png',
   url: 'https://asean-ai-dz.github.io',
   baseUrl: '/AegisFlowDocument/',
   organizationName: 'ASEAN-AI-DZ',
@@ -45,7 +45,7 @@ const config: Config = {
       title: 'AegisFlow AI',
       logo: {
         alt: 'AegisFlow AI Logo',
-        src: '/img/logo.png',
+        src: '/img/logo_aegis.png',
       },
       items: [
         {

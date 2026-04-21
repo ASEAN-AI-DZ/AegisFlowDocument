@@ -259,3 +259,43 @@ i Compiling Client
 i Compiling Client
 √ Client: Compiled successfully in 390.23ms
 [1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» docs\Services\FloodEyeService\Readme.md changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 5.50s
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» docs\Services\WalletService\Readme.md changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 228.52ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» .docusaurus\docusaurus.config.mjs changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 190.04ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» .docusaurus\docusaurus.config.mjs changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 174.29ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» .docusaurus\docusaurus.config.mjs changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 151.48ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» .docusaurus\docusaurus.config.mjs changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 130.36ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» .docusaurus\docusaurus.config.mjs changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 299.08ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» .docusaurus\docusaurus.config.mjs changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 160.44ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» .docusaurus\docusaurus.config.mjs changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 188.56ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» src\css\custom.css changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 3.54s
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
