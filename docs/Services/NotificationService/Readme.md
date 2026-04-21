@@ -355,7 +355,7 @@ _**AegisFlow AI – Cảnh báo kịp thời, bảo vệ cộng đồng.**_
 - [Prediction Service](../AIMLService/) – Phát hiện sự cố
 - [GIS & Map Service](../DigitalTwinService/) – Dữ liệu vùng ảnh hưởng
 - [Incident Service](../IncidentService/) – Quản lý chi tiết sự cố
-- [Dashboard Service](/Services/) – Hiển thị status
+- [Dashboard Service](../README.md) – Hiển thị status
 
 
   - Preview template

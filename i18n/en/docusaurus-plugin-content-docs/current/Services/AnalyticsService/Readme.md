@@ -263,5 +263,5 @@ ray:
 ## Related Services
 
 - [Prediction Service](../AIMLService/) – Impact predictions
-- [Dashboard Service](/Services/) – Visualization
+- [Dashboard Service](../README.md) – Visualization
 - [Notification Service](../NotificationService/) – Alerts

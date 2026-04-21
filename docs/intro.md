@@ -187,7 +187,7 @@ Khi một trận mưa lịch sử đổ xuống, hệ thống không chỉ hiể
 - [Kiến trúc Hệ thống](./Architecture.md) – Tìm hiểu và thiết kế tổng thể
 - [Hướng dẫn Bắt đầu](./GettingStarted.md) – Cài đặt và chạy AegisFlow AI
 - [Cài đặt Chi tiết](./Installation.md) – Hướng dẫn chi tiết cài đặt từng bước
-- [Các Dịch vụ](./Services/) – Tìm hiểu từng microservice
+- [Các Dịch vụ](./Services/README.md) – Tìm hiểu từng microservice
 
 ---
 

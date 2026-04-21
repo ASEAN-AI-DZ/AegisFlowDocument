@@ -10,7 +10,7 @@
   </a>
 </div>
 
-![AegisFlow AI Banner](/img/Banner.png)
+<!-- ![AegisFlow AI Banner](/img/Banner.png) -->
 
 > _"From reactive response to proactive prediction — AI is the urban planner's partner"_
 
@@ -86,7 +86,7 @@ A **GIS & Map** is a **virtual replica** of a physical entity — it can be a ma
 
 ## 👥 Target Audience
 
-![AegisFlow features](/img/doituong.png)
+<!-- ![AegisFlow features](/img/doituong.png) -->
 
 ### 👨‍💼 1. Urban Planners & Government Officials
 
@@ -114,7 +114,7 @@ A **GIS & Map** is a **virtual replica** of a physical entity — it can be a ma
 
 ## 🚀 Core Features
 
-![AegisFlow functionality](/img/chucnang.png)
+<!-- ![AegisFlow functionality](/img/chucnang.png) -->
 
 ### 1. Real-time GIS & Map
 
@@ -170,7 +170,7 @@ A **GIS & Map** is a **virtual replica** of a physical entity — it can be a ma
 - [System Architecture](./Architecture.md) – Understand the overall design
 - [Getting Started](./GettingStarted.md) – Install and run AegisFlow AI
 - [Detailed Installation](./Installation.md) – Step-by-step installation guide
-- [Services](/Services/) – Learn about each microservice
+- [Services](./Services/README.md) – Learn about each microservice
 
 ---
 

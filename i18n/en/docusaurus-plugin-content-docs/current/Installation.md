@@ -324,7 +324,7 @@ Check for these signs:
 
 1. [Getting Started](./GettingStarted.md) – Familiarize with the interface
 2. [Architecture](./Architecture.md) – Understand the system in detail
-3. [Services](/Services/) – Learn about each module
+3. [Services](./Services/README.md) – Learn about each module
 4. [Development](./BUILD_WITHOUT_DOCKER.md) – Setup for development
 
 ---

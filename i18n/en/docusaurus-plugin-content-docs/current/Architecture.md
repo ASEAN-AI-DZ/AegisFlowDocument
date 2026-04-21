@@ -266,6 +266,6 @@ docker-compose --file docker-compose.prod.yml up -d
 
 ## 📚 Related Documentation
 
-- [Services Documentation](/Services/)
-- [API Reference](/Services/)
+- [Services Documentation](./Services/README.md)
+- [API Reference](./Services/README.md)
 - [Installation Guide](./Installation.md)

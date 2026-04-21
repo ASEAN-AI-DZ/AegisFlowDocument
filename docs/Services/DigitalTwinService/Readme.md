@@ -229,4 +229,4 @@ PORT=3001
 
 - [Prediction Service](../AIMLService/) – Dự báo dựa trên dữ liệu DT
 - [Simulation Service](../AnalyticsService/) – Mô phỏng kịch bản
-- [Dashboard Service](/Services/) – Hiển thị DT trên bản đồ
+- [Dashboard Service](../README.md) – Hiển thị DT trên bản đồ

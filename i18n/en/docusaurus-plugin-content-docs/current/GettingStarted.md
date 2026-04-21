@@ -183,8 +183,8 @@ aws configure
 
 - [System Architecture](./Architecture.md) – Understand the detailed design
 - [Build Without Docker](./BUILD_WITHOUT_DOCKER.md) – If you prefer not to use Docker
-- [Services](/Services/) – Learn about each microservice
-- [API Documentation](/Services/) – List of API endpoints
+- [Services](./Services/README.md) – Learn about each microservice
+- [API Documentation](./Services/README.md) – List of API endpoints
 
 ---
 

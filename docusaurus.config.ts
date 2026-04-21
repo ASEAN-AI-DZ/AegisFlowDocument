@@ -40,7 +40,7 @@ const config: Config = {
 
   themeConfig: {
     metadata: [{ name: 'keywords', content: 'digital twin, smart city, urban management, AI prediction, urban planning, IoT, geospatial' }],
-    image: 'img/Banner.png',
+    image: 'img/logo_aegis.png',
     navbar: {
       title: 'AegisFlow AI',
       logo: {
