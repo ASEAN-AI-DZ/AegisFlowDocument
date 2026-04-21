@@ -1,0 +1,10 @@
+remote_theme: pages-themes/cayman@v0.2.0
+plugins:
+  - jekyll-remote-theme
+title: Aegisflow AI
+description: Nền tảng AI Cảnh báo Ngập lụt & Quản lý Ứng phó Khẩn cấp Đô thị
+show_downloads: true
+github:
+  zip_url: https://github.com/ASEAN-AI-DZ/AegisflowDocument/zipball/gh-pages
+  tar_url: https://github.com/ASEAN-AI-DZ/AegisflowDocument/tarball/gh-pages
+  repository_url: https://github.com/ASEAN-AI-DZ/AegisflowDocument

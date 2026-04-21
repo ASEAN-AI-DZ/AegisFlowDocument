@@ -1,0 +1,100 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-first websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #1a6bc4;
+  --ifm-color-primary-dark: #1760b0;
+  --ifm-color-primary-darker: #155ba6;
+  --ifm-color-primary-darkest: #104a89;
+  --ifm-color-primary-light: #1d76d8;
+  --ifm-color-primary-lighter: #2080e5;
+  --ifm-color-primary-lightest: #3d94f0;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(26, 107, 196, 0.1);
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme="dark"] {
+  --ifm-color-primary: #4da6ff;
+  --ifm-color-primary-dark: #2e96ff;
+  --ifm-color-primary-darker: #1f8cf5;
+  --ifm-color-primary-darkest: #0a74e0;
+  --ifm-color-primary-light: #6cb5ff;
+  --ifm-color-primary-lighter: #80bfff;
+  --ifm-color-primary-lightest: #aad4ff;
+  --docusaurus-highlighted-code-line-bg: rgba(77, 166, 255, 0.15);
+}
+
+/* Custom styles */
+.navbar {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar__brand {
+  font-weight: 700;
+}
+
+.navbar__logo {
+  height: 3.5rem;
+  margin-right: 0.5rem;
+}
+
+.navbar__title {
+  font-size: 1.5rem;
+  background: linear-gradient(45deg, #1a6bc4, #4da6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.header-gitlab-link:hover {
+  opacity: 0.6;
+}
+
+.header-gitlab-link::before {
+  content: "";
+  width: 24px;
+  height: 24px;
+  display: flex;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='white' d='M21.94 13.11l-1.05-3.22c0-.03-.01-.06-.02-.09l-2.11-6.48a.859.859 0 0 0-.8-.57c-.36 0-.68.25-.79.58l-2 6.17H8.84L6.83 3.33a.851.851 0 0 0-.79-.58c-.37 0-.69.25-.8.58L3.13 9.82v.01l-1.05 3.22c-.19.58.01 1.22.52 1.58l9.89 7.19c.17.12.39.12.56 0l9.89-7.19c.51-.37.71-1 .52-1.58z'/%3E%3C/svg%3E")
+    no-repeat;
+}
+
+[data-theme="light"] .header-gitlab-link::before {
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='black' d='M21.94 13.11l-1.05-3.22c0-.03-.01-.06-.02-.09l-2.11-6.48a.859.859 0 0 0-.8-.57c-.36 0-.68.25-.79.58l-2 6.17H8.84L6.83 3.33a.851.851 0 0 0-.79-.58c-.37 0-.69.25-.8.58L3.13 9.82v.01l-1.05 3.22c-.19.58.01 1.22.52 1.58l9.89 7.19c.17.12.39.12.56 0l9.89-7.19c.51-.37.71-1 .52-1.58z'/%3E%3C/svg%3E")
+    no-repeat;
+}
+
+.navbar-sidebar__brand {
+  box-shadow: none;
+}
+
+.dropdown__link {
+  font-size: 0.9rem;
+}
+
+.dropdown__link--active {
+  font-weight: 600;
+}
+
+.footer {
+  --ifm-footer-background-color: #242526;
+}
+
+.footer__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.footer__item {
+  font-size: 0.9rem;
+}
+
+.footer__copyright {
+  font-size: 0.9rem;
+  color: var(--ifm-color-primary-lighter);
+}

@@ -1,0 +1,261 @@
+
+> aegisflow-docs@1.0.0 start
+> docusaurus start --host 127.0.0.1 --port 3005
+
+[INFO] Starting the development server...
+[SUCCESS] Docusaurus website is running at: http://127.0.0.1:3005/AegisFlowDocument/
+i Compiling Client
+√ Client: Compiled successfully in 17.56s
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» docs\intro.md changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 314.97ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» .docusaurus\docusaurus-plugin-content-docs\default\version-current-metadata-prop-751.json changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 259.70ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» docs\Architecture.md changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 176.06ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» .docusaurus\docusaurus-plugin-content-docs\default\version-current-metadata-prop-751.json changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 120.48ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» docs\GettingStarted.md changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 159.91ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» docs\Installation.md changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 361.51ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» docs\BUILD_WITHOUT_DOCKER.md changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 273.39ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» docs\Services\README.md changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 1.83s
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» .docusaurus\docusaurus.config.mjs changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 4.08s
+[1mclient[39m[22m (webpack 5.99.9) compiled with [1m[33m2 warnings[39m[22m
+» .docusaurus\docusaurus.config.mjs changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 403.24ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» .docusaurus\docusaurus.config.mjs changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 161.24ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» .docusaurus\docusaurus.config.mjs changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 177.19ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» .docusaurus\docusaurus.config.mjs changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 232.43ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» .docusaurus\docusaurus.config.mjs changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 162.20ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» .docusaurus\docusaurus.config.mjs changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 303.87ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» .docusaurus\docusaurus.config.mjs changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 343.12ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» .docusaurus\docusaurus.config.mjs changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 313.90ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» .docusaurus\docusaurus.config.mjs changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 188.61ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» .docusaurus\docusaurus.config.mjs changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 135.21ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» .docusaurus\docusaurus.config.mjs changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 143.17ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» .docusaurus\docusaurus.config.mjs changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 177.39ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» .docusaurus\docusaurus.config.mjs changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 150.55ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» docs\Services\AnalyticsService\Readme.md changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 739.29ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» .docusaurus\docusaurus-plugin-content-docs\default\version-current-metadata-prop-751.json changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 357.64ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» docs\Installation.md changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 11.61s
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» .docusaurus\docusaurus-plugin-debug\default\docusaurus-debug-all-content-673.json changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 411.61ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» docs\Installation.md changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 294.71ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» docs\License.md changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 2.40s
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» docs\Services\README.md changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 4.95s
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» docs\Services\README.md changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 526.50ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» docs\Services\MediaService\Readme.md changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 238.70ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» .docusaurus\docusaurus-plugin-content-docs\default\version-current-metadata-prop-751.json changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 830.41ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» docs\Services\SearchService\Readme.md changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 333.30ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» .docusaurus\docusaurus-plugin-content-docs\default\version-current-metadata-prop-751.json changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 750.28ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» .docusaurus\docusaurus-plugin-content-docs\default\site-docs-services-notification-service-readme-md-52a.json changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 653.26ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» docs\Services\WalletService\Readme.md changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 262.10ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» .docusaurus\docusaurus-plugin-debug\default\docusaurus-debug-all-content-673.json changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 412.90ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» .docusaurus\docusaurus-plugin-content-docs\default\site-docs-architecture-md-495.json changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 369.98ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» docs\Services\FloodEyeService\Readme.md changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 394.58ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» .docusaurus\docusaurus-plugin-content-docs\default\version-current-metadata-prop-751.json changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 558.76ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» .docusaurus\docusaurus-plugin-content-docs\default\version-current-metadata-prop-751.json changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 265.58ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» .docusaurus\docusaurus-plugin-content-docs\default\site-docs-services-analytics-service-readme-md-89d.json changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 390.34ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» docs\Services\FloodEyeService\Readme.md changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 257.55ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» docs\Services\IncidentService\Readme.md changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 329.07ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» .docusaurus\docusaurus-plugin-content-docs\default\version-current-metadata-prop-751.json changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 427.27ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» docs\Services\IncidentService\Readme.md changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 340.80ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» docs\Services\IoTService\Readme.md changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 332.00ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» .docusaurus\docusaurus-plugin-content-docs\default\version-current-metadata-prop-751.json changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 404.30ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» docs\Services\IoTService\Readme.md changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 379.24ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» docs\Services\NotificationService\Readme.md changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 463.59ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» docs\Services\NotificationService\Readme.md changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 515.86ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» docs\Services\NotificationService\Readme.md changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 674.90ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» docs\Services\IncidentService\Readme.md changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 933.08ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» docs\Services\NotificationService\Readme.md changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 1.64s
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» package.json changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 1.01s
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» .docusaurus\docusaurus-plugin-debug\default\docusaurus-debug-all-content-673.json changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 474.15ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» .docusaurus\routes.js changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 9.74s
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» .docusaurus\docusaurus-plugin-debug\default\docusaurus-debug-all-content-673.json changed. Rebuilding Client
+» .docusaurus\docusaurus-plugin-debug\default\docusaurus-debug-all-content-673.json changed. Rebuilding Client
+√ Client: Compiled successfully in 395.45ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» .docusaurus\routes.js changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 348.05ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» .docusaurus\docusaurus-plugin-debug\default\docusaurus-debug-all-content-673.json changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 155.53ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» .docusaurus\routes.js changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 270.66ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» .docusaurus\docusaurus-plugin-debug\default\docusaurus-debug-all-content-673.json changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 208.79ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
+» .docusaurus\routes.js changed. Rebuilding Client
+i Compiling Client
+√ Client: Compiled successfully in 390.23ms
+[1mclient[39m[22m (webpack 5.99.9) compiled [1m[32msuccessfully[39m[22m
