@@ -85,6 +85,11 @@ const sidebars: SidebarsConfig = {
       id: 'License',
       label: '📜 License',
     },
+    {
+      type: 'doc',
+      id: 'Package_License',
+      label: '📦 Package Licenses',
+    },
   ],
 };
 
