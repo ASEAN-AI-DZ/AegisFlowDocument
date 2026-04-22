@@ -4,12 +4,12 @@ AegisFlow AI được phân phối dưới **GNU General Public License v3.0**.
 
 ## Tóm tắt
 
-| Điều khoản | Chi tiết |
-|-----------|---------|
-| **Phiên bản** | GPL v3.0 |
-| **Năm** | 2026 |
-| **Tác giả** | DTU_DZ_T1 Team |
-| **Tổ chức** | ASEAN-AI-DZ |
+| Điều khoản    | Chi tiết       |
+| ------------- | -------------- |
+| **Phiên bản** | GPL v3.0       |
+| **Năm**       | 2026           |
+| **Tác giả**   | DTU_DZ_T1 Team |
+| **Tổ chức**   | ASEAN-AI-DZ    |
 
 ## Quyền của bạn
 
