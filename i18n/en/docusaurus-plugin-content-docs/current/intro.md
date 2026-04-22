@@ -8,7 +8,7 @@
   [![License: GPL-3.0](https://img.shields.io/badge/License-GPL%203.0-blue.svg)](License)
 </div>
 
-<!-- ![AegisFlow AI Banner](/static/img/Banner.png) -->
+![AegisFlow AI Banner](/img/Banner.png)
 
 > _"From reactive response to proactive prediction — AI is the urban planner's partner"_
 
@@ -84,7 +84,7 @@ A **GIS & Map** is a **virtual replica** of a physical entity — it can be a ma
 
 ## 👥 Target Audience
 
-<!-- ![AegisFlow features](/static/img/doituong.png) -->
+![AegisFlow features](/img/doituong.png)
 
 ### 👨‍💼 1. Urban Planners & Government Officials
 
@@ -112,7 +112,7 @@ A **GIS & Map** is a **virtual replica** of a physical entity — it can be a ma
 
 ## 🚀 Core Features
 
-<!-- ![AegisFlow functionality](/static/img/chucnang.png) -->
+![AegisFlow functionality](/img/chucnang.png)
 
 ### 1. Real-time GIS & Map
 

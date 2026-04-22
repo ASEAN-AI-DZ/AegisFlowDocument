@@ -1,6 +1,6 @@
 # 🏙️ AegisFlow AI — Nền tảng GIS & Map & AI cho Quản lý Đô thị Thông minh
 
-<!-- ![s](/static/img/Banner.png) -->
+<!-- ![s](/img/Banner.png) -->
 
 > _"Từ phản ứng thụ động sang dự đoán chủ động — AI là cộng sự của nhà quy hoạch"_
 
@@ -137,7 +137,7 @@ Hãy tưởng tượng bạn đang chơi một trò chơi mô phỏng (simulatio
 
 ## 📊 Các Đối tượng Hướng đến
 
-<!-- ![s](/static/img/doituong.png) -->
+<!-- ![s](/img/doituong.png) -->
 
 AegisFlow AI được thiết kế cho:
 
@@ -168,7 +168,7 @@ AegisFlow AI được thiết kế cho:
 
 ## 🚀 Chức năng Chính của AegisFlow AI
 
-<!-- ![s](/static/img/chucnang.png) -->
+<!-- ![s](/img/chucnang.png) -->
 
 ### 1. **Real-time GIS & Map**
 

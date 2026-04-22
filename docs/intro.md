@@ -13,7 +13,7 @@
   <!-- <a href="CHANGELOG.md">📜 Changelog</a> -->
 </div>
 
-![Banner](/static/img/Banner.png)
+![Banner](/img/Banner.png)
 
 > _"Từ phản ứng thụ động sang dự báo chủ động — AI là lá chắn bảo vệ cộng đồng trước thiên tai"_
 
@@ -106,7 +106,7 @@ Khi một trận mưa lịch sử đổ xuống, hệ thống không chỉ hiể
 
 ## 👥 Các Đối tượng hướng đến
 
-![Đối tượng](/static/img/doituong.png)
+![Đối tượng](/img/doituong.png)
 
 ### 👨‍💼 1. Nhà Quy hoạch & Quan chức Chính quyền
 
@@ -135,7 +135,7 @@ Khi một trận mưa lịch sử đổ xuống, hệ thống không chỉ hiể
 
 ## 🚀 Chức năng Chính của AegisFlow AI
 
-![Chức năng](/static/img/chucnang.png)
+![Chức năng](/img/chucnang.png)
 
 ### 1. **Real-time Flood Radar (Bản đồ Cảnh báo Thời gian thực)**
 
