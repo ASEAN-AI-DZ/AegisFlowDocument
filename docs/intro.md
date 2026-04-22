@@ -5,9 +5,7 @@
     <img src="https://img.shields.io/badge/🚀_Website-AegisFlow_AI-00C853?style=for-the-badge" alt="Demo System"/>
   </a>
   <br/>
-  <a href="./License.md">
-    <img src="https://img.shields.io/badge/License-GPL%203.0-blue.svg" alt="License: GPL-3.0"/>
-  </a>
+  [![License: GPL-3.0](https://img.shields.io/badge/License-GPL%203.0-blue.svg)](License)
   <br/>
   <!-- <a href="./CONTRIBUTING.md">🤝 Đóng Góp</a>  -->
   <!-- <a href="CHANGELOG.md">📜 Changelog</a> -->
@@ -28,6 +26,7 @@
 Trong bối cảnh biến đổi khí hậu và đô thị hóa diễn ra nhanh chóng tại các thành phố lớn trên cả nước, hệ thống ứng phó thiên tai truyền thống đang đối mặt với nhiều thách thức nghiêm trọng.
 
 **Thực trạng:**
+
 - Mưa lớn cực đoan và triều cường gây ngập lụt diễn ra thường xuyên, làm tê liệt giao thông đô thị.
 - Các tuyến đường huyết mạch bị cắt đứt bất ngờ, gây nguy hiểm cho người dân và làm chậm trễ xe cấp cứu, cứu hỏa trong giờ khắc sinh tử.
 - Hầu hết các hệ thống hiện tại chỉ tập trung vào ghi nhận (monitoring) sự cố sau khi đã xảy ra, nhưng thiếu khả năng dự báo sớm (prediction) mức độ ngập và cảnh báo tuyến đường an toàn.
@@ -108,20 +107,24 @@ Khi một trận mưa lịch sử đổ xuống, hệ thống không chỉ hiể
 <!-- ![Đối tượng](/img/doi_tuong.png) -->
 
 ### 👨‍💼 1. Nhà Quy hoạch & Quan chức Chính quyền
+
 - Dự báo tác động của các dự án hạ tầng trước khi triển khai
 - Mô phỏng kịch bản what-if để tối ưu hóa quyết định
 - Dashboard dữ liệu để ra quyết định nhanh, chính xác
 
 ### 👷 2. Kỹ sư & Chuyên gia Giao thông Đô thị
+
 - Phân tích chi tiết lưu lượng giao thông và rủi ro
 - Mô phỏng hiệu quả của các biện pháp tương ứng
 - Tối ưu hóa hạ tầng giao thông
 
 ### 🏛️ 3. Tổ chức Cộng đồng & NGO
+
 - Tất cả công dân có thể sử dụng công cụ để đề xuất dự án
 - Minh bạch hóa tác động kinh tế-xã hội-môi trường
 
 ### 📚 4. Nhà Nghiên cứu & Sinh viên
+
 - Truy cập dữ liệu mở để nghiên cứu
 - Mô hình hóa các vấn đề đô thị phức tạp
 - Kiểm chứng giả thuyết trong môi trường an toàn
@@ -140,7 +143,7 @@ Khi một trận mưa lịch sử đổ xuống, hệ thống không chỉ hiể
 
 ### 2. **AI Dự báo Rủi ro Rút/Ngập**
 
-- **Dự báo vùng có rủi ro ngập** trong tương lai gần qua thuật toán Machine Learning 
+- **Dự báo vùng có rủi ro ngập** trong tương lai gần qua thuật toán Machine Learning
 - Phân tích tương quan giữa dữ liệu API thời tiết (Weather) và địa hình trũng thấp
 
 ### 3. **Dashboard Hỗ trợ Quyết định Cứu trợ**
@@ -160,7 +163,7 @@ Khi một trận mưa lịch sử đổ xuống, hệ thống không chỉ hiể
 
 | Thành phần                 | Công nghệ cụ thể       | Vai trò trong hệ thống                                                                                                                      |
 | -------------------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Giao diện (Frontend)**   | `Leaflet.js`           | Hiển thị bản đồ tương tác, vẽ các lớp phủ dữ liệu như vùng ngập, luồng giao thông và các thực thể GIS & Map.                             |
+| **Giao diện (Frontend)**   | `Leaflet.js`           | Hiển thị bản đồ tương tác, vẽ các lớp phủ dữ liệu như vùng ngập, luồng giao thông và các thực thể GIS & Map.                                |
 | **Xử lý Logic (Backend)**  | `Node.js (Express)`    | Đóng vai trò trung tâm điều phối API, quản lý phiên làm việc và kết nối tới cơ sở dữ liệu.                                                  |
 | **Trí tuệ Nhân tạo (AI)**  | `Amazon Bedrock`       | Cung cấp hạ tầng để chạy các mô hình ngôn ngữ lớn và mô hình dự báo, hỗ trợ phân tích kịch bản và tối ưu hóa tài nguyên đô thị.             |
 | **Dữ liệu nền (Database)** | `PostgreSQL + PostGIS` | Lưu trữ và xử lý các dữ liệu không gian phức tạp, thực hiện các phép toán hình học như kiểm tra giao cắt, tạo vùng đệm và tính khoảng cách. |
@@ -170,19 +173,18 @@ Khi một trận mưa lịch sử đổ xuống, hệ thống không chỉ hiể
 
 ## 🌟 So Sánh AegisFlow AI Với Các Hệ Thống Hiện Tại
 
-| Tiêu chí           | ❌ Các Hệ thống, Bản đồ Hiện tại                          | ✅ AegisFlow AI                                                      |
-| ------------------ | --------------------------------------------------------- | -------------------------------------------------------------------- |
-| Cách tiếp cận      | Chỉ giám sát kẹt xe – hiển thị đường rỗng dù ngập nước    | Loại trừ lộ trình – Tự động chặn đường ngập và tìm đường vòng        |
-| Phản ứng           | Thụ động – người dân đi vào vùng nước mới biết ngập       | Chủ động – dự báo và gửi lộ trình tránh ngập từ trước                |
-| Khả năng điều phối | Thiếu hệ thống phân bổ, cứu hộ theo cảm tính              | Đánh giá mức độ tổn thương, tự động phân cực khu vực ưu tiên cao     |
-| Cập nhật dữ liệu   | Rất chậm, chờ báo chí đô thị lên bài                      | Crowdsourcing Realtime + IoT + WebSockets hiển thị ngay lập tức      |
-| Phân tích kịch bản | Không có hoặc rất hạn chế tính toán không gian            | Phân tích điểm trũng, khoanh vùng rủi ro bằng PostgreSQL (PostGIS)   |
-| Rủi ro sinh mạng   | Nguy hiểm, nhiều trường hợp xe bị chết máy, mắc kẹt       | An toàn – Đảm bảo người dân tìm được đường về nhà an toàn            |
+| Tiêu chí           | ❌ Các Hệ thống, Bản đồ Hiện tại                       | ✅ AegisFlow AI                                                    |
+| ------------------ | ------------------------------------------------------ | ------------------------------------------------------------------ |
+| Cách tiếp cận      | Chỉ giám sát kẹt xe – hiển thị đường rỗng dù ngập nước | Loại trừ lộ trình – Tự động chặn đường ngập và tìm đường vòng      |
+| Phản ứng           | Thụ động – người dân đi vào vùng nước mới biết ngập    | Chủ động – dự báo và gửi lộ trình tránh ngập từ trước              |
+| Khả năng điều phối | Thiếu hệ thống phân bổ, cứu hộ theo cảm tính           | Đánh giá mức độ tổn thương, tự động phân cực khu vực ưu tiên cao   |
+| Cập nhật dữ liệu   | Rất chậm, chờ báo chí đô thị lên bài                   | Crowdsourcing Realtime + IoT + WebSockets hiển thị ngay lập tức    |
+| Phân tích kịch bản | Không có hoặc rất hạn chế tính toán không gian         | Phân tích điểm trũng, khoanh vùng rủi ro bằng PostgreSQL (PostGIS) |
+| Rủi ro sinh mạng   | Nguy hiểm, nhiều trường hợp xe bị chết máy, mắc kẹt    | An toàn – Đảm bảo người dân tìm được đường về nhà an toàn          |
 
 ---
 
 ## 📖 Tài liệu Chính
-
 
 - [Kiến trúc Hệ thống](./Architecture.md) – Tìm hiểu và thiết kế tổng thể
 - [Hướng dẫn Bắt đầu](./GettingStarted.md) – Cài đặt và chạy AegisFlow AI
@@ -206,6 +208,7 @@ Dự án không chỉ xử lý vấn đề ngập lụt cấp bách của hôm n
 ## 📞 Liên hệ & Đóng góp
 
 ### Liên hệ Dự án
+
 - **GitHub Repository:** https://github.com/ASEAN-AI-DZ/AegisFlowAI
 - **Đóng góp:** Fork repository → tạo feature branch → mở Pull Request
 - **Báo lỗi:** Tạo GitHub Issue với mô tả chi tiết, steps to reproduce
@@ -220,4 +223,3 @@ Dự án này được phân phối dưới **GNU General Public License v3.0**.
 ---
 
 _**Được phát triển với ❤️ để hướng tới đô thị an toàn, bền vững**_
-

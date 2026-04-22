@@ -5,9 +5,7 @@
     <img src="https://img.shields.io/badge/🚀_Website-AegisFlow-00C853?style=for-the-badge" alt="Demo System"/>
   </a>
   <br/>
-  <a href="./License.md">
-    <img src="https://img.shields.io/badge/License-GPL%203.0-blue.svg" alt="License: GPL-3.0"/>
-  </a>
+  [![License: GPL-3.0](https://img.shields.io/badge/License-GPL%203.0-blue.svg)](License)
 </div>
 
 <!-- ![AegisFlow AI Banner](/img/Banner.png) -->
@@ -142,26 +140,26 @@ A **GIS & Map** is a **virtual replica** of a physical entity — it can be a ma
 
 ## 📚 Technology Stack
 
-| Component | Technology | Role in System |
-| --- | --- | --- |
-| **Frontend Interface** | `Leaflet.js` | Display interactive maps, draw data overlay layers such as flood zones, traffic flows, and GIS & Map entities. |
-| **Backend Logic** | `Node.js (Express)` | Acts as the central hub for API coordination, session management, and database connections. |
-| **Artificial Intelligence** | `Amazon Bedrock` | Provides infrastructure to run large language models and prediction models, supporting scenario analysis and urban resource optimization. |
-| **Database** | `PostgreSQL + PostGIS` | Store and process complex spatial data, perform geometric operations such as intersection checks, buffer creation, and distance calculations. |
-| **Real-time Connectivity** | `WebSockets` | Maintain continuous bidirectional connections, ensuring IoT sensor data is updated on the map in real-time. |
+| Component                   | Technology             | Role in System                                                                                                                                |
+| --------------------------- | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Frontend Interface**      | `Leaflet.js`           | Display interactive maps, draw data overlay layers such as flood zones, traffic flows, and GIS & Map entities.                                |
+| **Backend Logic**           | `Node.js (Express)`    | Acts as the central hub for API coordination, session management, and database connections.                                                   |
+| **Artificial Intelligence** | `Amazon Bedrock`       | Provides infrastructure to run large language models and prediction models, supporting scenario analysis and urban resource optimization.     |
+| **Database**                | `PostgreSQL + PostGIS` | Store and process complex spatial data, perform geometric operations such as intersection checks, buffer creation, and distance calculations. |
+| **Real-time Connectivity**  | `WebSockets`           | Maintain continuous bidirectional connections, ensuring IoT sensor data is updated on the map in real-time.                                   |
 
 ---
 
 ## 🌟 AegisFlow AI vs. Current Systems
 
-| Criteria | ❌ Current Systems | ✅ AegisFlow AI |
-| --- | --- | --- |
-| Approach | Monitoring only – past & present data | Monitoring + Prediction – from past & present data → future |
-| Response | Reactive – only acts after incidents | Proactive – forecasts and prevents before occurrence |
-| Prediction Capability | No forecasting – unknown future | Forecasting available – supports early decision-making |
-| Scenario Analysis | None or very limited | What-if simulation – test first, visualize results |
-| Risk & Cost | High risk – wasted budget, unintended impacts | Reduced risk – optimized cost and efficiency |
-| Transparency | Low, difficult to verify | Transparent + Validated – AI explains, open data, community participation |
+| Criteria              | ❌ Current Systems                            | ✅ AegisFlow AI                                                           |
+| --------------------- | --------------------------------------------- | ------------------------------------------------------------------------- |
+| Approach              | Monitoring only – past & present data         | Monitoring + Prediction – from past & present data → future               |
+| Response              | Reactive – only acts after incidents          | Proactive – forecasts and prevents before occurrence                      |
+| Prediction Capability | No forecasting – unknown future               | Forecasting available – supports early decision-making                    |
+| Scenario Analysis     | None or very limited                          | What-if simulation – test first, visualize results                        |
+| Risk & Cost           | High risk – wasted budget, unintended impacts | Reduced risk – optimized cost and efficiency                              |
+| Transparency          | Low, difficult to verify                      | Transparent + Validated – AI explains, open data, community participation |
 
 ---
 

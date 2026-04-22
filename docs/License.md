@@ -1,3 +1,7 @@
+---
+id: License
+slug: /License
+---
 # 📄 Giấy phép — GNU General Public License v3.0
 
 AegisFlow AI được phân phối dưới **GNU General Public License v3.0**.
