@@ -9,7 +9,7 @@
     <img src="https://img.shields.io/badge/License-GPL%203.0-blue.svg" alt="License: GPL-3.0"/>
   </a>
   <br/>
-  <a href="./CONTRIBUTING.md">🤝 Đóng Góp</a> 
+  <!-- <a href="./CONTRIBUTING.md">🤝 Đóng Góp</a>  -->
   <!-- <a href="CHANGELOG.md">📜 Changelog</a> -->
 </div>
 
