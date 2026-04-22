@@ -5,13 +5,15 @@
     <img src="https://img.shields.io/badge/🚀_Website-AegisFlow_AI-00C853?style=for-the-badge" alt="Demo System"/>
   </a>
   <br/>
-  [![License: GPL-3.0](https://img.shields.io/badge/License-GPL%203.0-blue.svg)](License)
+ <a href="./License.md">
+    <img src="https://img.shields.io/badge/License-GPL%203.0-blue.svg" alt="License: GPL-3.0"/>
+  </a>
   <br/>
   <!-- <a href="./CONTRIBUTING.md">🤝 Đóng Góp</a>  -->
   <!-- <a href="CHANGELOG.md">📜 Changelog</a> -->
 </div>
 
-<!-- ![Banner](/img/banner_aegisflowai.png) -->
+![Banner](/static/img/Banner.png)
 
 > _"Từ phản ứng thụ động sang dự báo chủ động — AI là lá chắn bảo vệ cộng đồng trước thiên tai"_
 
@@ -104,7 +106,7 @@ Khi một trận mưa lịch sử đổ xuống, hệ thống không chỉ hiể
 
 ## 👥 Các Đối tượng hướng đến
 
-<!-- ![Đối tượng](/img/doi_tuong.png) -->
+![Đối tượng](/static/img/doituong.png)
 
 ### 👨‍💼 1. Nhà Quy hoạch & Quan chức Chính quyền
 
@@ -133,7 +135,7 @@ Khi một trận mưa lịch sử đổ xuống, hệ thống không chỉ hiể
 
 ## 🚀 Chức năng Chính của AegisFlow AI
 
-<!-- ![Chức năng](/img/chuc_nang_chinh.png) -->
+![Chức năng](/static/img/chucnang.png)
 
 ### 1. **Real-time Flood Radar (Bản đồ Cảnh báo Thời gian thực)**
 
