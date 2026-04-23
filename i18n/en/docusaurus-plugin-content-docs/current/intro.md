@@ -10,7 +10,7 @@
 
 </div>
 
-![AegisFlow AI Banner](@site/static/img/Banner.png)
+![AegisFlow AI Banner](@site/static/img/Banner1.png)
 
 > _"From reactive response to proactive prediction — AI is the urban planner's partner"_
 
