@@ -13,7 +13,7 @@
   <!-- <a href="CHANGELOG.md">📜 Changelog</a> -->
 </div>
 
-![Banner](@site/static/img/Banner.png)
+![Banner](@site/static/img/Banner1.png)
 
 > _"Từ phản ứng thụ động sang dự báo chủ động — AI là lá chắn bảo vệ cộng đồng trước thiên tai"_
 
