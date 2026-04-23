@@ -5,9 +5,9 @@
     <img src="https://img.shields.io/badge/🚀_Website-AegisFlow_AI-00C853?style=for-the-badge" alt="Demo System"/>
   </a>
   <br/>
- <a href="./License.md">
-    <img src="https://img.shields.io/badge/License-GPL%203.0-blue.svg" alt="License: GPL-3.0"/>
-  </a>
+
+  [![License: GPL-3.0](https://img.shields.io/badge/License-GPL%203.0-blue.svg)](./License.md)
+
   <br/>
   <!-- <a href="./CONTRIBUTING.md">🤝 Đóng Góp</a>  -->
   <!-- <a href="CHANGELOG.md">📜 Changelog</a> -->

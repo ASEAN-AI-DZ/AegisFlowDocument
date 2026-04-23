@@ -5,7 +5,9 @@
     <img src="https://img.shields.io/badge/🚀_Website-AegisFlow-00C853?style=for-the-badge" alt="Demo System"/>
   </a>
   <br/>
-  [![License: GPL-3.0](https://img.shields.io/badge/License-GPL%203.0-blue.svg)](License)
+
+  [![License: GPL-3.0](https://img.shields.io/badge/License-GPL%203.0-blue.svg)](./License.md)
+
 </div>
 
 ![AegisFlow AI Banner](@site/static/img/Banner.png)
