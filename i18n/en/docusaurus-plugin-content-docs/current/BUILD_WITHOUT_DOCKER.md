@@ -1,31 +1,31 @@
 # Build Without Docker
 
-Hướng dẫn cài đặt và chạy AegisFlow AI **KHÔNG sử dụng Docker** (bare metal).
+Guide to installing and running AegisFlow AI **WITHOUT using Docker** (bare metal).
 
-## Yêu Cầu Hệ Thống
+## System Requirements
 
-### Phần Mềm Bắt Buộc
+### Mandatory Software
 
 - **PHP** >= 8.2
 - **Composer** >= 2.0
 - **Node.js** >= 20.x
-- **npm** hoặc **yarn**
+- **npm** or **yarn**
 - **Python** >= 3.10
 - **pip**
 - **Go** >= 1.21
 - **PostgreSQL** >= 15
 - **Redis** >= 7.0
-- **MongoDB** >= 6.0 (cho ContextBroker)
+- **MongoDB** >= 6.0 (for ContextBroker)
 
 ### Optional Services
 
-- **Kafka** >= 3.0 (cho message broker)
+- **Kafka** >= 3.0 (for message broker)
 - **Mosquitto** (MQTT broker)
 - **MinIO** (object storage)
 
 ---
 
-## 1. Cài Đặt Dependencies
+## 1. Install Dependencies
 
 ### Ubuntu/Debian
 
@@ -79,7 +79,7 @@ brew install go
 
 ---
 
-## 2. Cấu Hình Database
+## 2. Database Configuration
 
 ### PostgreSQL
 
@@ -87,7 +87,7 @@ brew install go
 # Start PostgreSQL
 sudo systemctl start postgresql
 
-# Create database và user
+# Create database and user
 sudo -u postgres psql << EOF
 CREATE DATABASE aegisflow;
 CREATE USER aegisflow_user WITH PASSWORD 'your_password';
@@ -131,10 +131,10 @@ php artisan key:generate
 nano .env
 ```
 
-**Cấu hình .env:**
+**Configure .env:**
 
 ```env
-APP_NAME=AegisFlow
+APP_NAME="AegisFlow AI"
 APP_ENV=production
 APP_KEY=base64:xxx  # Generated automatically
 APP_DEBUG=false
@@ -316,7 +316,7 @@ Create service file `/etc/systemd/system/aegisflow-core.service`:
 
 ```ini
 [Unit]
-Description=aegisflow Core API
+Description=AegisFlow AI Core API
 After=network.target postgresql.service redis.service
 
 [Service]
@@ -330,7 +330,7 @@ Restart=always
 WantedBy=multi-user.target
 ```
 
-Enable và start:
+Enable and start:
 
 ```bash
 sudo systemctl daemon-reload
@@ -453,7 +453,7 @@ work_mem = 16MB
 
 ---
 
-## Môi Trường Development
+## Development Environment
 
 ```bash
 # Install nodemon for auto-reload
@@ -465,9 +465,9 @@ nodemon index.js
 # Laravel auto-reload
 php artisan serve --host=0.0.0.0 --port=8000
 
-# Python auto-reload (uvicorn đã có --reload)
+# Python auto-reload (uvicorn already has --reload)
 ```
 
 ---
 
-**Lưu ý:** Build production nên dùng Docker để đảm bảo consistency. Hướng dẫn này chỉ cho development hoặc khi không có Docker.
+**Note:** Production builds should use Docker to guarantee consistency. This guide is only for development or when Docker is not available.

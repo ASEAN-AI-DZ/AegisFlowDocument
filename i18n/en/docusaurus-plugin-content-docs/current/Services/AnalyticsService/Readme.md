@@ -1,67 +1,75 @@
 # 🎮 Simulation & What-If Service
 
-> Scenario analysis and urban planning simulation engine for AegisFlow AI
+> Scenario Simulation Tool - Test infrastructure decisions in AegisFlow AI's virtual environment.
 
 ---
 
 ## Purpose
 
-**Simulation & What-If Service** allows urban planners and authorities to test infrastructure scenarios in a digital environment before real-world deployment.
+The **Simulation & What-If Service** allows planners and urban managers to test hundreds of different scenarios before actual deployment on the AegisFlow AI platform:
 
-**Core capabilities:**
-- 🏗️ Drag-and-drop new infrastructure (roads, hospitals, schools, parks)
-- 🔄 Run Agent-Based Model (ABM) simulations over 5–10 year timescales
-- 📈 Forecast multi-dimensional impacts: economic, environmental, social, traffic, safety
-- 📊 A/B scenario comparison
-- 📄 Generate detailed reports with **Impact Score** & **Radar Chart**
+1. **What-If Scenario Simulation**
+   - Design new roads, bridges, and detours.
+   - Adjust traffic intersections and signal timings.
+   - Model the impact of new public facilities (hospitals, schools, shelter zones).
+   - Alter traffic routing and zone division policies.
+
+2. **Multidimensional Impact Forecasting**
+   - 📈 **Socioeconomic**: Forecast regional GDP changes, employment growth, and accessibility indexes.
+   - 🌤️ **Environmental**: Estimate emission levels, air quality index changes, and new flooding risk boundaries.
+   - 👥 **Social**: Equity scores, healthcare accessibility index, and education coverage rating.
+   - 🚗 **Traffic**: Assess reduction in traffic congestion, travel times, and routing safety metrics.
+
+3. **Scenario Comparison (A/B Testing)**
+   - Visually compare different planning options.
+   - Evaluate comparative Impact Scores.
+   - Inform optimal decision-making backed by simulated evidence.
 
 ---
 
 ## Technology Stack
 
 | Component | Technology |
-|-----------|-----------|
-| **Simulation Core** | Python (Mesa, AnyLogic DSL) |
-| **API Framework** | FastAPI |
-| **Parallel Computing** | Ray, Dask |
-| **Database** | PostgreSQL (results), MongoDB (metadata) |
-| **Visualization** | GeoJSON, D3.js |
-| **AI Integration** | Amazon Nova (impact prediction) |
+|---|---|
+| **Simulation Core** | Python (Mesa ABM, NetworkX) |
+| **API Framework** | Python FastAPI |
+| **Parallel Computing** | Ray (Distributed Computing) |
+| **Database** | PostgreSQL + PostGIS, MongoDB (Metadata), ClickHouse (Analytics) |
+| **Message Queue** | Apache Kafka |
+| **AI Integration** | Amazon Nova (Impact Assessment) |
 
 ---
 
-## 6-Step Simulation Process
+## Simulation Workflow
 
 ```
-Step 1: User creates scenario
-        (add road / hospital / change traffic signal)
-          ↓
-Step 2: Clone current state from GIS & Map
-          ↓
-Step 3: Apply scenario changes (delta)
-          ↓
-Step 4: Run Agent-Based Model
-        - Simulates population movement (home → work → market)
-        - Simulates traffic flows
-        - Simulates economic activities
-          ↓
-Step 5: Call Amazon Nova for socioeconomic analysis
-          ↓
-Step 6: Generate Impact Score + Radar Chart + Explanation
-```
+1. Initialize Scenario
+   └── Drag & drop mock infrastructure on AegisFlow map
+   └── Setup baseline parameters (budget, timeline, objectives)
 
----
+2. Clone GIS & Map State
+   └── Take a baseline spatial snapshot of the city state from the GIS database
 
-## Impact Score Formula
+3. Apply Scenario Changes
+   └── Modify network graph topology (Network Graph)
+   └── Add/update mock infrastructure attributes
 
-```
-Impact Score (0-100) = weighted average of:
+4. Run Agent-Based Model (ABM) Simulation
+   └── Simulate navigation of millions of agents (citizens)
+   └── Evaluate agent interactions with the newly modified infrastructure
 
-Economic     × 30%  → GDP, employment, business hours saved
-Environmental× 20%  → CO2, AQI, green area
-Accessibility× 20%  → Coverage %, travel time
-Equity       × 15%  → Gini coefficient, vulnerable groups
-Safety       × 15%  → Accident rate, emergency response time
+5. AI Impact Analysis
+   └── Run contextual impact analysis with Amazon Nova
+   └── Extract structured socioeconomic and environmental indices
+
+6. Compile Report & Impact Score
+   └── Compute composite Impact Score (0–100)
+   └── Generate Radar Charts and trend timelines
+   └── Generate natural language explanation of outcomes (AI Generated)
+
+7. Persist & Share
+   └── Save simulation parameters and results for cross-comparison
+   └── Export PDF reports for stakeholders
 ```
 
 ---
@@ -74,194 +82,109 @@ Safety       × 15%  → Accident rate, emergency response time
 # Create new scenario
 POST /api/scenarios
 {
-  "name": "New Overpass in District 1",
-  "description": "Add overpass to reduce intersection congestion",
-  "infrastructure": [
-    {
-      "type": "overpass",
-      "location": { "lat": 16.04, "lon": 108.21 },
-      "capacity": 2000
-    }
+  "name": "Renovation of Intersection A",
+  "changes": [
+    { "type": "new_road", "geometry": "..." }
   ]
 }
 
-Response:
-{
-  "scenarioId": "scen_abc123",
-  "status": "created",
-  "estimatedRuntime": 180
-}
+# Fetch simulation results
+GET /api/scenarios/{id}/results
 ```
 
-### Run Simulation
+### Execution
 
 ```bash
-# Start simulation (async)
-POST /api/scenarios/{scenarioId}/simulate
-{
-  "timeframe": 10,
-  "iterations": 1000
-}
+# Trigger simulation run
+POST /api/scenarios/{id}/simulate
 
 Response:
 {
-  "jobId": "job_xyz",
-  "status": "running",
-  "progress": 0
-}
-
-# Check progress
-GET /api/scenarios/{scenarioId}/status
-{
-  "status": "running",
-  "progress": 45,
-  "estimatedTimeLeft": 98
-}
-```
-
-### Get Results
-
-```bash
-GET /api/scenarios/{scenarioId}/results
-
-Response:
-{
-  "impactScore": 73.5,
-  "radarChart": {
-    "economic": 80,
-    "environmental": 65,
-    "accessibility": 75,
-    "equity": 70,
-    "safety": 78
-  },
-  "details": {
-    "economic": {
-      "gdp_change": 2.5,
-      "employment_created": 1200,
-      "business_hours_saved": 45000
-    },
-    "environmental": {
-      "co2_reduction": 12.5,
-      "aqi_improvement": 18
-    }
-  },
-  "explanation": "This overpass improves traffic flow by 35%...",
-  "recommendation": "HIGH PRIORITY - Expected ROI in 8 years"
-}
-```
-
-### Scenario Comparison
-
-```bash
-# Compare multiple scenarios
-POST /api/scenarios/compare
-{
-  "scenarioIds": ["scen_abc", "scen_def", "scen_ghi"]
-}
-
-Response:
-{
-  "winner": "scen_def",
-  "comparison": [...]
+  "status": "processing",
+  "eta_seconds": 180,
+  "simulation_id": "sim_987"
 }
 ```
 
 ---
 
-## Usage Example
+## Dashboard Analytics & Backend
 
-```typescript
-// User creates scenario
-const scenario = await simulationService.createScenario({
-  name: "New Hospital in District 4",
-  infrastructure: [
-    {
-      type: "hospital",
-      location: { lat: 16.1, lon: 108.18 },
-      capacity: 500,
-    },
-  ],
-});
+Beyond scenario simulation, this service provides deep analytics APIs powering the AegisFlow AI dashboard.
 
-// Run simulation
-await simulationService.simulate(scenario.id, { timeframe: 10 });
+### Multidimensional Data Aggregation
 
-// Get and display results
-const results = await simulationService.getResults(scenario.id);
-displayImpactScore({
-  economic: results.economic.gdp_change,
-  social: results.social.equity_score,
-  environmental: results.environmental.co2_reduction,
-  transportation: results.transportation.congestion_reduction,
-  safety: results.safety.accident_reduction,
-});
+- **Time Series Analysis**: Consolidates historical flood water levels and traffic density reports by hour/day/month.
+- **Anomaly Detection**: Automatically identifies faulty IoT sensor data patterns.
+- **District Analytics**: Compare responder dispatch metrics and flood resolution times across different administrative districts.
 
-// Show AI explanation
-displayExplanation(results.explanation);
-```
+### Reporting
+
+- **Operational Health Report**: Overview of real-time urban vitals.
+- **SLA Performance Reports**: Measure crisis response speeds and dispatch efficiency ratings.
+- **GIS Heatmaps**: Layer spatial risk vectors representing cumulative flooding reports.
 
 ---
 
-## Agent-Based Model (ABM)
+## System Integration
 
-Simulates the behavior of:
+The Simulation & Analytics service integrates closely with:
 
-- 👥 People commuting (home → work → market → home) — morning rush, evening rush
-- 🏢 Businesses (local economic impact)
-- 🚗 Transportation (logistics, city-wide movement)
-
-### Key Characteristics:
-- Stochastic (with randomness)
-- Multi-period (5–10 years, monthly/quarterly steps)
-- Multi-objective (economic, social, environmental)
-
-### Computational Complexity
-- Single scenario: ~5–10 minutes on 1 core
-- Parallel simulation (5 cores): ~2 minutes
-- Batch comparison (10 scenarios): ~20–30 minutes
+- **GIS & Map Service**: Pulls spatial baseline layouts (Baseline State).
+- **AI Prediction Service**: Integrates machine learning flood forecasts into simulation parameters.
+- **IoT Service**: Streams live sensors telemetry via **Kafka** to calibrate simulation agents.
+- **Notification Service**: Triggers operational report dispatches and alerts when simulations finish.
 
 ---
 
 ## Deployment
 
-### Docker
+Packaged as a Docker container, this service can scale horizontally utilizing a Ray Cluster to compute complex multi-agent simulations.
 
-```dockerfile
-FROM python:3.11
-WORKDIR /app
-RUN pip install fastapi uvicorn mesa ray
-COPY requirements.txt .
-RUN pip install -r requirements.txt
-COPY . .
-EXPOSE 8003
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0"]
-```
-
-### Ray Cluster (for scaling)
-
-```yaml
-ray:
-  version: "1.0"
-  cluster_name: civic-sim
-  max_workers: 10
-  worker_node_type: gpu_worker # optional: for faster simulations
+```bash
+docker-compose up -d simulation-service
 ```
 
 ---
 
-## Performance Targets
+## Data Structure (ClickHouse Events Schema)
 
-| Metric                  | Target   |
-| ----------------------- | -------- |
-| Single scenario latency | < 10 min |
-| Parallel 5 scenarios    | < 3 min  |
-| Impact predictions      | < 1 sec  |
-| API response time       | < 500 ms |
+### Events Table
+
+```sql
+CREATE TABLE events (
+    event_id UUID,
+    event_type String,
+    timestamp DateTime,
+    user_id UInt64,
+    entity_id UInt64,
+    entity_type String,
+    metadata String,
+    created_at DateTime DEFAULT now()
+) ENGINE = MergeTree()
+ORDER BY (timestamp, event_type);
+```
+
+### Materialized Report View
+
+```sql
+CREATE MATERIALIZED VIEW reports_daily AS
+SELECT
+    toDate(created_at) as date,
+    category,
+    status,
+    count() as total_reports,
+    avg(resolution_time) as avg_resolution_time
+FROM reports
+GROUP BY date, category, status;
+```
 
 ---
 
-## Related Services
+## License
 
-- [Prediction Service](../AIMLService/) – Impact predictions
-- [Dashboard Service](../README.md) – Visualization
-- [Notification Service](../NotificationService/) – Alerts
+This project is distributed under the [GNU General Public License v3.0](https://github.com/ASEAN-AI-DZ/AegisFlowAI/blob/master/LICENSE).
+
+---
+
+_**AegisFlow AI – Data-driven decisions, building resilient cities.**_

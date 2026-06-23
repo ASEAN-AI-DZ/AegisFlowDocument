@@ -1,126 +1,160 @@
 # 🌊 FloodEye Service
 
-**Port:** 8004  
-**Status:** 🟡 In Development
+> AI-Powered Flood Detection - AegisFlow AI Platform.
 
-FloodEye Service is an AI-powered flood detection and monitoring service, using image processing and geospatial analysis to provide early flood warnings.
+## 📋 Overview
+
+**Programming Language:** Python 3.11 + FastAPI + PostGIS  
+**Database:** PostgreSQL with PostGIS (`floodeye_db`)  
+**Status:** 🟡 Under Development
+
+The FloodEye service utilizes artificial intelligence to detect and analyze flooding from image feeds, correlating it with geospatial data to deliver early warnings and support disaster response operations.
 
 ---
 
-## Key Features
+## 🎯 Core Features
 
 ### 🌊 Flood Detection
 
-- **AI image analysis**
-  - Deep learning models (CNN)
-  - Transfer learning (ResNet, EfficientNet)
-  - Custom trained models
+- **AI-Powered Image Analysis**
+  - Deep learning models (CNN).
+  - Transfer learning (ResNet, EfficientNet).
+  - Custom trained models.
+  - Real-time inference.
 
-- **Water level detection**
-  - Water surface recognition
-  - Depth estimation
-  - Comparison with baseline
+- **Water Level Detection**
+  - Water surface recognition.
+  - Depth estimation.
+  - Baseline comparison.
+  - Tracking water level changes.
 
-- **Flood level classification**
-  - **Level 1 (Low)**: Minor flooding, not dangerous
-  - **Level 2 (Medium)**: Moderate flooding, needs monitoring
-  - **Level 3 (High)**: Severe flooding, dangerous
-  - **Level 4 (Critical)**: Extreme flooding, emergency evacuation
+- **Flood Severity Classification**
+  - **Level 1 (Low)**: Minor flooding, no immediate danger.
+  - **Level 2 (Medium)**: Moderate flooding, monitoring required.
+  - **Level 3 (High)**: Heavy flooding, hazardous.
+  - **Level 4 (Critical)**: Severe flooding, emergency status.
+
+- **Confidence Scoring**
+  - Confidence score output (0–100%).
+  - Model uncertainty estimation.
+  - Multi-model ensemble.
+  - Ground truth validation.
 
 ### 📸 Image Processing
 
-- **Image preprocessing**
-  - Resize and normalize
-  - Color correction
-  - Noise reduction
+- **Image Preprocessing**
+  - Resizing and normalization.
+  - Color correction.
+  - Noise reduction.
+  - Image enhancement.
 
-- **Feature extraction**
-  - Feature extraction
-  - Edge detection
-  - Texture analysis
+- **Feature Extraction**
+  - Feature extraction mapping.
+  - Edge detection.
+  - Texture analysis.
+  - Pattern recognition.
 
-- **Model inference**
-  - Model inference
-  - GPU acceleration
-  - Batch processing
+- **Model Inference**
+  - Model inference execution.
+  - GPU acceleration.
+  - Batch processing.
+  - Caching results.
+
+- **Batch Processing**
+  - Batch image processing pipeline.
+  - Queue management.
+  - Parallel processing.
+  - Progress tracking.
 
 ### 🗺️ Geospatial Analysis
 
-- **Flood mapping**
-  - Flood extent mapping
-  - Inundation areas
-  - Water depth visualization
+- **Flood Mapping**
+  - Flood extent mapping.
+  - Inundation areas extraction.
+  - Water depth visualization.
+  - Time-series animations.
 
-- **Affected area calculation**
-  - Affected area calculation
-  - Population at risk
-  - Infrastructure impact
+- **Affected Area Calculation**
+  - Affected area calculation.
+  - Population at risk.
+  - Infrastructure impact.
+  - Economic loss estimation.
 
-- **Risk zone identification**
-  - Risk zones identification
-  - Evacuation routes
-  - Safe zones mapping
+- **Risk Zones Identification**
+  - Risk zones identification.
+  - Evacuation route calculations.
+  - Safe zones mapping.
+  - Emergency shelters locations.
 
-### 🔔 Alert System
+- **Historical Flood Logs**
+  - Historical flood data logs.
+  - Flood frequency analysis.
+  - Return period estimation.
+  - Trend analysis.
 
-- **Automatic flood alerts**
-  - Automatic alert generation
-  - Multi-level warnings
-  - Escalation rules
+### 🔔 Warning System
 
-- **Risk level notifications**
-  - Risk level notification
-  - Affected population
-  - Recommended actions
+- **Automatic Alert Generation**
+  - Automatic alert generation.
+  - Multi-level warning levels.
+  - Escalation rules.
+  - Alert distribution.
 
-- **Integration with NotificationService**
-  - Push notifications
-  - SMS alerts
-  - Email warnings
+- **Risk Level Notifications**
+  - Risk level notification dispatches.
+  - Affected population statistics.
+  - Recommended safety actions.
+  - Real-time updates.
 
----
+- **NotificationService Integration**
+  - Push notifications.
+  - SMS alerts.
+  - Email warnings.
+  - In-app alerts.
 
-## API Endpoints
-
-```bash
-# Analyze image for flood detection
-POST /api/floodeye/analyze
-{
-  "imageUrl": "https://...",
-  "cameraId": "cam_001",
-  "location": { "lat": 16.04, "lon": 108.21 }
-}
-
-Response:
-{
-  "floodDetected": true,
-  "level": 2,
-  "confidence": 0.89,
-  "affectedArea": 1250,
-  "waterDepth": 0.35
-}
-
-# Get flood status for a zone
-GET /api/floodeye/zones/{zoneId}/status
-
-# Get historical flood data
-GET /api/floodeye/history?from=2026-01-01&to=2026-03-31
-```
+- **Early Warning Systems**
+  - Early warning triggers.
+  - Predictive alerts.
+  - Lead time optimization.
+  - False alarm reduction.
 
 ---
 
-## Technology Stack
+## 🔗 Integrations
 
-| Component | Technology |
-|-----------|-----------|
-| **AI Framework** | TensorFlow / PyTorch |
-| **API** | Python FastAPI |
-| **Image Processing** | OpenCV, PIL |
-| **Database** | PostgreSQL + PostGIS |
-| **Storage** | S3 / MinIO (images) |
+This service integrates with:
+
+- **MediaService**: Ingests images for AI analysis.
+- **IoTService**: Consumes water level sensor telemetry.
+- **IncidentService**: Automatically registers incidents when flooding is detected.
+- **NotificationService**: Distributes flood warning alerts.
+- **AnalyticsService**: Logs historical analytics data.
+- **AIMLService**: Shares model architectures and compute infrastructure.
+
+---
+
+## 📊 Input Data
+
+### Image Inputs
+
+- **Sources**: Traffic cameras, drones, satellites, citizen uploads.
+- **Formats**: JPEG, PNG.
+- **Resolution**: Minimum 224x224.
+- **Quality**: Clear, unblurred image frames.
+
+### Sensor Data Inputs
+
+- Real-time water levels.
+- Precipitation records.
+- Elevation and terrain parameters.
+- Historical data.
 
 ---
 
 ## 📄 License
 
-This project is distributed under the [GNU General Public License v3.0](https://github.com/ASEAN-AI-DZ/AegisFlow/blob/master/LICENSE).
+This project is distributed under the [GNU General Public License v3.0](https://github.com/ASEAN-AI-DZ/AegisFlowAI/blob/master/LICENSE).
+
+---
+
+_**AegisFlow AI – Intelligent monitoring, rapid response.**_

@@ -19,6 +19,16 @@ const sidebars: SidebarsConfig = {
         [
           {
             type: 'doc',
+            id: 'Services/README',
+            label: 'Tổng quan Services',
+          },
+          {
+            type: 'doc',
+            id: 'Services/DigitalTwinService/Readme',
+            label: 'DigitalTwinService',
+          },
+          {
+            type: 'doc',
             id: 'Services/AIMLService/Readme',
             label: 'AIMLService',
 

@@ -1,156 +1,361 @@
 # 🚨 Emergency Response & Notification Service
 
-> Multi-channel alerts and emergency evacuation guidance for AegisFlow AI
+> Emergency Alert & Routing Guidance System - Timely response to urban incidents.
 
 ---
 
 ## Purpose
 
-**Emergency Response & Notification Service** provides:
+The **Notification & Emergency Response Service** of AegisFlow AI provides:
 
-1. **🚑 Emergency Route Finding** — Fastest routes for ambulances and fire trucks
-2. **🗺️ Evacuation Guidance** — Safe evacuation routes for citizens
-3. **📱 Multi-channel Alerts** — Push, SMS, Email, Web notifications
-4. **📊 Cascade Broadcasting** — City-wide alerts triggered by AI predictions
-5. **📍 Geolocation-based Targeting** — Only notify citizens in affected zones
+1. **Emergency Alerts**
+   - Flooding: "⚠️ Flooding alert in District 1 - Evacuate within 1 hour"
+   - Accidents: "🚗 Major accident on Le Loi St - Use alternative routes"
+   - Air Quality: "🌫️ Poor air quality (AQI 165) - Stay indoors"
+
+2. **Routing Guidance**
+   - Calculate the fastest route for ambulances and fire trucks.
+   - Suggest safe detours for citizen evacuation.
+   - Predict travel times (ETA).
+
+3. **Multi-Channel Distribution**
+   - 📱 Push notifications (mobile app).
+   - 📧 Email.
+   - 💬 SMS.
+   - 📻 Radio/Siren broadcasting (via external integrations).
+   - 🌐 Web interface alerts.
+
+4. **Targeted Priorities**
+   - 👥 Citizens (evacuation alerts).
+   - 🚑 Emergency Response Teams (route guidance).
+   - 🏛️ Local Authorities (incident situation reports).
 
 ---
 
 ## Technology Stack
 
 | Component | Technology |
-|-----------|-----------|
-| **Runtime** | Node.js + Express |
-| **Database** | MongoDB (notifications, logs) |
-| **Push Notifications** | Firebase FCM |
-| **SMS** | Twilio / Vonage |
-| **Email** | SendGrid / Nodemailer |
-| **Message Queue** | Apache Kafka |
-| **Cache** | Redis |
+|---|---|
+| **Framework** | Node.js + Express.js |
+| **Database** | MongoDB (notification history), PostgreSQL (user preferences) |
+| **Message Queue** | Apache Kafka, RabbitMQ |
+| **Push** | Firebase Cloud Messaging (FCM) |
+| **Email** | SendGrid / AWS SES |
+| **SMS** | Twilio, Viettel, Vinaphone |
+| **Real-time** | Socket.io, WebSocket |
+| **Logging** | ELK Stack (Elasticsearch, Logstash, Kibana) |
 
 ---
 
-## Key Features
+## Emergency Response Workflow
 
-### 🚑 Emergency Route Calculation
+```
+1. Incident Detected
+   └── Prediction Service trigger or Citizen Report validation
 
-Identifies the **fastest, safest route** for emergency vehicles by:
-- Avoiding flooded roads
-- Avoiding congested intersections
-- Prioritizing emergency lanes
+2. Emergency Response Service Triggered
+   └── Classify incident type (flooding, accident, pollution, etc.)
+   └── Pinpoint affected geographic zones
 
-```bash
-POST /api/emergency/fastest-route
-{
-  "vehicleType": "ambulance",
-  "fromLocation": { "lat": 16.04, "lon": 108.21 },
-  "toLocation": { "lat": 16.08, "lon": 108.20 }
-}
+3. AI-Powered Route Calculation
+   └── Calculate fastest route for rescue units
+   └── Predict travel times (ETA)
 
-Response:
-{
-  "route": [...],
-  "estimatedTime": 8,
-  "distance": 2.3,
-  "avoidedZones": ["zone_flooding_1"],
-  "alternativeRoutes": [...]
-}
+4. Notification Generation
+   └── Compose localized messages tailored for each recipient group
+   └── Support multilingual templates (Vietnamese, English, etc.)
+
+5. Multi-channel Distribution
+   └── Prioritize delivery channels (Push > SMS > Email)
+   └── Track delivery and receipt status
+
+6. Feedback Loop
+   └── Track user acknowledgment (ACK)
+   └── Dispatch follow-up reminders if necessary
 ```
 
-### 🗺️ Evacuation Guidance
+---
+
+## API Endpoints
+
+### Broadcast Alerts
 
 ```bash
-POST /api/emergency/evacuation-guidance
-{
-  "incidentLocation": { "lat": 16.04, "lon": 108.21 },
-  "incidentType": "flooding",
-  "affectedRadius": 500
-}
-
-Response:
-{
-  "evacuationRoutes": [...],
-  "safeZones": [...],
-  "estimatedEvacuationTime": 45,
-  "citizensAtRisk": 12500
-}
-```
-
-### 📱 Broadcast Alert
-
-```bash
+# Broadcast city-wide or zone-specific alert
 POST /api/emergency/broadcast-alert
 {
-  "type": "flooding",
-  "severity": "critical",
+  "type": "flooding|accident|pollution|earthquake",
+  "severity": "low|medium|high|critical",
   "affectedZones": ["zone_1", "zone_2"],
-  "message": "Flood Warning: Please evacuate immediately",
-  "channels": ["push", "sms", "web"]
+  "message": "Flooding alert - Evacuate immediately",
+  "recommendedActions": ["evacuate", "use_alternative_routes"],
+  "timeframe": "immediate|1hour|6hours"
 }
 
 Response:
 {
-  "alertId": "alert_xyz",
-  "recipientsNotified": 8500,
-  "deliveryStatus": {
-    "push": "sent",
-    "sms": "queued",
-    "web": "published"
+  "alertId": "alert_...",
+  "status": "broadcasting",
+  "recipients": 150000,      // Estimated count
+  "channels": {
+    "push": 120000,
+    "sms": 20000,
+    "email": 10000
+  }
+}
+```
+
+### Emergency Route Calculation
+
+```bash
+# Find fastest route for responders
+POST /api/emergency/fastest-route
+{
+  "vehicleType": "ambulance|fire_truck|police",
+  "fromLocation": { "lat": 16.04, "lon": 108.21 },  // Origin
+  "toLocation": { "lat": 16.08, "lon": 108.20 },    // Destination
+  "avoidAreas": ["zone_flooded_1", "zone_flooded_2"]
+}
+
+Response:
+{
+  "routes": [
+    {
+      "routeId": "route_best",
+      "distance": 8.2,           // km
+      "duration": 340,           // seconds
+      "eta": "2026-03-31T11:15:00Z",
+      "waypoints": [{lat, lon}, ...],
+      "hazards": ["heavy_traffic_on_hospital_road"],
+      "instructions": [
+        "Turn right on Nguyen Trai",
+        "Use HOV lane on bypass",
+        "Turn left on Hospital Way"
+      ]
+    }
+  ]
+}
+```
+
+### Evacuation Guidance
+
+```bash
+# Get safe evacuation detours and shelters
+POST /api/emergency/evacuation-guidance
+{
+  "affectedZones": ["zone_flooded"],
+  "populationDensity": "high"
+}
+
+Response:
+{
+  "evacuationRoutes": [
+    {
+      "routeId": "evac_route_1",
+      "capacity": 5000,          // People/hour capacity
+      "safetyLevel": "safe",
+      "destination": "Higher ground in District 2",
+      "distance": 3.5,
+      "instructions": "..."
+    }
+  ],
+  "shelters": [
+    {
+      "name": "School A",
+      "location": { "lat": 16.10, "lon": 108.22 },
+      "capacity": 2000,
+      "current_occupancy": 500,
+      "supplies": ["water", "food", "medical"]
+    }
+  ]
+}
+```
+
+### Notification Preferences
+
+```bash
+# Update user notification channels and quiet hours
+PATCH /api/users/{userId}/notification-preferences
+{
+  "alertTypes": {
+    "flooding": true,
+    "accident": true,
+    "pollution": true
+  },
+  "channels": {
+    "push": true,
+    "sms": false,
+    "email": true
+  },
+  "quietHours": {
+    "start": "22:00",
+    "end": "07:00",
+    "allowCriticalOnly": true
   }
 }
 ```
 
 ---
 
-## Alert Types & Severity Levels
-
-| Alert Type | Severity | Channels | Action |
-|-----------|---------|---------|--------|
-| Flooding | CRITICAL | Push + SMS + Web | Evacuate immediately |
-| Traffic Accident | HIGH | Push + Web | Avoid area |
-| Air Pollution | MEDIUM | Push | Limit outdoor activities |
-| Congestion | LOW | Web | Change route |
-
----
-
 ## Message Templates
 
-### Flood Warning
+### Flooding Alert (Template)
+
 ```
-🚨 FLOOD WARNING - [ZONE NAME]
+Title:
+⚠️ Flooding Alert - {{zone_name}}
 
-Water level rising. Please:
-✅ Move to higher ground immediately
-✅ Avoid roads: [ROAD LIST]
-✅ Go to safe zones: [SHELTER LIST]
+Content:
+Flooding is forecast to occur within the next {{timeframe}} hours.
+Zone {{zone_name}} will be affected.
 
-AegisFlow AI Emergency System
+Recommended Action:
+- {{recommended_actions}}
+
+Safe Evacuation Route:
+{{safe_routes}}
+
+Details: {{app_link}}
 ```
 
-### Traffic Accident
+### Traffic Incident (Template)
+
 ```
-⚠️ TRAFFIC ACCIDENT - [LOCATION]
+Title:
+🚨 Traffic Incident - {{location}}
 
-Serious accident at [ADDRESS].
-🔀 Suggested alternate routes: [ALTERNATIVES]
-🚑 Emergency vehicles en route - please yield
+Content:
+A traffic incident has occurred at {{location}}.
+Congestion is building. Please avoid this area.
 
-AegisFlow AI Traffic Management
+Alternative Detour:
+{{alternative_routes}}
+
+Estimated travel delay: {{eta}} minutes
+
+Details: {{app_link}}
 ```
 
 ---
 
-## Delivery & Retry Logic
+## Delivery Strategies
+
+### Multi-channel Prioritization
 
 ```
-Send notification
-    ↓
-Try primary channel (Push)
-    ├─ Success → Log & done
-    └─ Fail → Retry (3 times, 30s intervals)
-              └─ Still failing → Fallback to SMS
-                                └─ Final fallback: Email
+Scenario 1: Flooding (Slow onset, large area)
+├── All users in zone: PUSH (High priority)
+├── After 10 min: SMS (if no client ACK received)
+└── After 30 min: Email
+
+Scenario 2: Traffic Incident (Fast onset, small area)
+├── Drivers in proximity: PUSH + SMS (Immediate delivery)
+├── Surrounding zone users: PUSH only
+└── Follow-up: Re-route suggestions refreshed every 5 min
 ```
+
+### Retry Logic
+
+```
+1st attempt: Immediately
+2nd attempt: +5 minutes (if no ACK received)
+3rd attempt: +15 minutes
+4th attempt: +1 hour (final attempt)
+```
+
+---
+
+## Performance Metrics
+
+| Metric | Target |
+|---|---|
+| Push notification latency | < 3 seconds |
+| SMS delivery time | < 30 seconds |
+| Broadcast dispatch to 100k users | < 30 seconds |
+| Message acknowledgment (ACK) rate | > 60% |
+| False alert rate | < 2% |
+
+---
+
+## Usage Examples
+
+### Triggered by Prediction Service (Flooding Alert)
+
+```typescript
+const floodingAlert = await predictionService.getFloodingAlert();
+if (floodingAlert.overallRisk === 'CRITICAL') {
+  await notificationService.broadcastAlert({
+    type: 'flooding',
+    severity: 'critical',
+    affectedZones: floodingAlert.affectedZones.map(z => z.zoneId),
+    message: `Urgent flooding warning in ${affectedZones.join(', ')}`,
+    timeframe: 'immediate'
+  });
+}
+```
+
+### Triggered by Incident Service (Emergency Responder Dispatch)
+
+```typescript
+const incident = await incidentService.getIncidentDetails(incidentId);
+const routes = await notificationService.getEmergencyRoutes({
+  vehicleType: 'ambulance',
+  fromLocation: incident.location,
+  toLocation: nearestHospital.location
+});
+
+await notificationService.sendDirectAlert({
+  recipientType: 'emergency_teams',
+  message: `Emergency dispatch for accident at ${incident.location}`,
+  routes: routes,
+  priority: 'critical'
+});
+```
+
+---
+
+## Advanced Subsystems
+
+### 📧 Email Subsystem
+- **Template engine**: Handle HTML/CSS emails with variables replacement.
+- **SMTP configuration**: Support multiple SMTP relays with TLS/SSL encryption.
+- **Queue management**: Redis-backed queues for rate-limited bulk email batches.
+
+### 💬 SMS Gateway Integration
+- **Gateways**: Enforce Twilio integration and local VNPT/Viettel gateways.
+- **Failover**: Automatic gateway switching upon failed delivery attempts.
+- **Tracking**: Track status reports (sent, delivered, failed) and cost analysis logs.
+
+### 🔔 Live In-App Alerts
+- WebSocket connections maintain instant two-way message updates.
+- Offline queuing caches notifications for disconnected clients.
+- Read/unread status syncing with real-time badge updates.
+
+---
+
+## 📬 Notification Types
+
+| Type | Channels | Priority | Description |
+|---|---|---|---|
+| 🚨 **Emergency** | Push, SMS, Email | High | Critical hazard warnings and evacuation orders |
+| 📢 **Warning** | Push, Email | Medium | Non-life-threatening major updates |
+| ℹ️ **Informational**| Push, In-app | Low | General public information announcements |
+| 💬 **Interactive**  | Push, In-app | Medium | Comments, replies, and citizen reports approvals |
+| 🏆 **Rewards** | Push, In-app | Low | Reward points (CityPoint) accruals or redemptions |
+| 📊 **Reports** | Email | Low | Periodic dashboard analysis reports |
+
+---
+
+## 🔗 Integrations
+
+This service integrates with:
+
+- **CoreAPI**: Dispatch notifications via the primary API gateway.
+- **RabbitMQ/Kafka**: Consume warning events published by other microservices.
+- **IncidentService**: Alerts responders when incidents are registered or escalated.
+- **FloodEyeService**: Distributes warnings on visual flood detection.
+- **IoTService**: Triggers notifications when sensor threshold ranges are breached.
+- **MediaService**: Resolves thumbnails and media attachment URLs.
 
 ---
 
@@ -161,46 +366,30 @@ Try primary channel (Push)
 ```dockerfile
 FROM node:18-alpine
 WORKDIR /app
+RUN npm install -g pm2
 COPY package.json .
 RUN npm install
 COPY . .
 EXPOSE 3005
-CMD ["npm", "start"]
+CMD ["pm2-runtime", "start", "ecosystem.config.js"]
 ```
 
 ### Environment Variables
 
 ```env
-MONGODB_URI=mongodb://mongo:27017/notifications
-FIREBASE_PROJECT_ID=aegisflow-firebase
-TWILIO_ACCOUNT_SID=...
-TWILIO_AUTH_TOKEN=...
+MONGODB_URL=mongodb://mongo:27017/notifications
+KAFKA_BROKERS=kafka:9092
+FCM_API_KEY=...
 SENDGRID_API_KEY=...
-KAFKA_BROKER=kafka:9092
-PORT=3005
+TWILIO_AUTH_TOKEN=...
 ```
-
----
-
-## Performance Targets
-
-| Metric | Target |
-|--------|--------|
-| Alert delivery time | < 30 seconds |
-| Push notification delivery | > 95% success rate |
-| SMS delivery | > 90% success rate |
-| API response time | < 200ms |
-
----
-
-## Related Services
-
-- [AI Prediction Service](../AIMLService/) – Triggers alerts based on predictions
-- [GIS & Map Service](../DigitalTwinService/) – Provides affected zone data
-- [Incident Service](../IncidentService/) – Incident management integration
 
 ---
 
 ## 📄 License
 
-This project is distributed under the [GNU General Public License v3.0](https://github.com/ASEAN-AI-DZ/AegisFlow/blob/master/LICENSE).
+This project is distributed under the [GNU General Public License v3.0](https://github.com/ASEAN-AI-DZ/AegisFlowAI/blob/master/LICENSE).
+
+---
+
+_**AegisFlow AI – Timely alerts, protecting communities.**_

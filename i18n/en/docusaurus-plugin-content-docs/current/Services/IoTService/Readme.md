@@ -1,139 +1,177 @@
 # 📡 IoT Service
 
-**Port:** 8001  
+> Sensor Data Ingestion & Monitoring - AegisFlow AI Platform.
+
+## 📋 Overview
+
+**Programming Language:** Node.js + TimescaleDB + MQTT + Redis  
 **Database:** TimescaleDB (`iot_db`)  
-**Status:** 🟡 In Development
+**Status:** 🟡 Under Development
 
-The IoT Service manages connections, data collection, and monitoring of IoT devices in the AegisFlow system, including environmental sensors, surveillance cameras, and other smart devices.
-
----
-
-## Key Features
-
-### 🔌 Device Management
-
-- **Register IoT devices**
-  - Auto-register via MQTT
-  - Manual registration via API
-  - Device type categorization
-
-- **Connection monitoring**
-  - Real-time connection status
-  - Automatic reconnection
-  - Connection failure alerts
-
-- **Device configuration**
-  - Update settings remotely
-  - Manage firmware versions
-  - Device groups
-
-### 📊 Data Collection
-
-- **Multi-protocol support**
-  - MQTT (primary protocol for IoT)
-  - HTTP REST (for web sensors)
-  - WebSocket (real-time streaming)
-
-- **Sensor data types**
-  - Water level sensors
-  - Temperature / Humidity sensors
-  - PM2.5 / Air quality sensors
-  - Traffic cameras
-  - Weather stations
-
-- **Data validation**
-  - Range checking
-  - Outlier detection
-  - Data completeness checks
-
-### 🌊 Flood Monitoring
-
-- **Water level tracking**
-  - Real-time readings
-  - Alert thresholds
-  - Historical trends
-
-- **Flood zone detection**
-  - Sensor network coverage
-  - Flood level classification
-  - Integration with FloodEye AI
-
-### 🚦 Traffic Monitoring
-
-- **Camera feeds**
-  - RTSP stream processing
-  - Vehicle counting
-  - Speed estimation
-
-- **Traffic flow analysis**
-  - Vehicles per hour
-  - Average speed
-  - Congestion level
+The IoT service manages connections, ingests telemetry, and monitors IoT devices in the AegisFlow system, including environmental sensors, traffic cameras, and other smart devices.
 
 ---
 
-## API Endpoints
+## 🎯 Core Features
 
-### Device Management
+### 📡 Sensor Data Ingestion
 
-```bash
-# Register new device
-POST /api/iot/devices
-{
-  "deviceId": "sensor_001",
-  "type": "water_level",
-  "location": { "lat": 16.04, "lon": 108.21 },
-  "zoneId": "zone_1"
-}
+- **MQTT Protocol Support**
+  - Publish/subscribe topics.
+  - QoS levels (0, 1, 2).
+  - Retained messages.
+  - Last Will and Testament messages.
 
-# Get device status
-GET /api/iot/devices/{deviceId}
+- **HTTP REST API**
+  - POST endpoints for data ingestion.
+  - Bulk upload endpoints.
+  - Webhook callbacks.
+  - API Authentication.
 
-# List all devices
-GET /api/iot/devices?type=water_level&status=online
-```
+- **Real-Time Data Ingestion**
+  - Telemetry streaming.
+  - Low latency.
+  - High throughput.
+  - Buffer and queuing management.
 
-### Sensor Data
+- **Batch Ingestion**
+  - Bulk insertions.
+  - Batch parsing.
+  - Scheduled import jobs.
+  - Data validation.
 
-```bash
-# Get latest readings
-GET /api/iot/sensors/{sensorId}/latest
+### 📊 Time Series Data
 
-# Get historical data
-GET /api/iot/sensors/{sensorId}/history?from=2026-03-01&to=2026-03-31
+- **TimescaleDB for Efficient Storage**
+  - Hypertables optimized for time-series inputs.
+  - Automatic table partitioning.
+  - Data compression.
+  - Data retention policies.
 
-# Get data for a zone
-GET /api/iot/zones/{zoneId}/sensors
-```
+- **Data Aggregation Rollups**
+  - **1 Minute**: Real-time monitoring metrics.
+  - **5 Minutes**: Short-term analysis.
+  - **1 Hour**: Long-term trend analysis.
+  - **1 Day**: Historical charts.
+
+- **Historical Querying**
+  - Period-based range queries.
+  - Aggregate functions (AVG, MIN, MAX, SUM).
+  - Downsampling.
+  - Gap-filling interpolation.
+
+- **Data Retention Policies**
+  - Raw telemetry: 30 days.
+  - 1-minute aggregations: 90 days.
+  - 1-hour aggregations: 1 year.
+  - Daily rollups: Permanent.
+
+### 🔔 Threshold Alerting
+
+- **Configurable Thresholds**
+  - Upper/lower bounds.
+  - Dynamic adaptive thresholds.
+  - Multi-condition thresholds.
+  - Sensor-specific custom configs.
+
+- **Rule Engine**
+  - Flexible rule evaluations.
+  - Complex boolean conditions.
+  - Time-windowed rules.
+  - Correlated multi-sensor alerts.
+
+- **Multi-Level Warnings**
+  - Warnings.
+  - Critical alerts.
+  - Emergency triggers.
+  - Escalation rules.
+
+- **Event Publishing via RabbitMQ**
+  - Publish alert events to message brokers.
+  - Integration with NotificationService.
+  - Deduplication of warning notifications.
+  - Alert correlation.
+
+### 🎛️ Sensor Management
+
+- **Provisioning & Management**
+  - Device provisioning tokens.
+  - Automatic device discovery.
+  - Bulk registration sheets.
+  - Decommissioning workflows.
+
+- **Sensor Metadata**
+  - Device specs (model, manufacturer).
+  - Physical coordinates (GPS coordinates).
+  - Installation date log.
+  - Owner/operator details.
+
+- **Health Monitoring**
+  - Online/offline status detection.
+  - Last-seen timestamp logging.
+  - Battery charge levels.
+  - Signal strength (RSSI).
+  - Telemetry error rates.
+
+- **Calibration Tracking**
+  - Calibration calendars.
+  - Historical calibration logs.
+  - Sensor drift detection.
+  - Maintenance prompts.
 
 ---
 
-## Technology Stack
+## 🔌 Supported Sensor Types
 
-| Component | Technology |
-|-----------|-----------|
-| **Runtime** | Node.js |
-| **MQTT Broker** | Mosquitto / EMQX |
-| **Database** | TimescaleDB (time-series) |
-| **Message Queue** | Apache Kafka |
-| **Cache** | Redis |
+### 🌊 Water Level Sensors
+- Measure river and reservoir depths.
+- Flood occurrence detection.
+- High water level alarms.
+- Integrates with FloodEyeService.
+
+### 💨 Air Quality Sensors
+- PM2.5, PM10 indexes.
+- CO, CO2, NO2 levels.
+- Temperature and relative humidity.
+- AQI calculation.
+
+### 📹 Traffic Cameras
+- Traffic congestion detection.
+- Vehicle counting metrics.
+- License plate recognition.
+- Traffic violation alerts.
+
+### 🌦️ Weather Stations
+- Temperature and humidity.
+- Precipitation volume tracking.
+- Wind speed and direction.
+- Barometric pressure.
+
+### 🌊 Inundation Detectors
+- Real-time flooding water level depth.
+- Flow rate index.
+- Early hazard warnings.
+- Flood prediction inputs.
 
 ---
 
-## Deployment
+## 🔗 Integrations
 
-### Environment Variables
+This service integrates with:
 
-```env
-PORT=8001
-MQTT_BROKER=mqtt://localhost:1883
-MONGODB_URI=mongodb://localhost:27017/aegisflow_iot
-KAFKA_BROKER=kafka:9092
-TIMESCALEDB_URL=postgresql://user:pass@timescale:5432/iot_db
-```
+- **MQTT Broker (Mosquitto)**: Ingests raw sensor streams.
+- **FloodEyeService**: Delivers water level indicators.
+- **AnalyticsService**: Registers long-term analytics logs.
+- **NotificationService**: Triggers warning notifications on threshold breaches.
+- **IncidentService**: Automatically registers emergency incidents when thresholds are breached.
+- **Orion-LD**: Synchronizes entity models conforming to the NGSI-LD standard.
 
 ---
 
 ## 📄 License
 
-This project is distributed under the [GNU General Public License v3.0](https://github.com/ASEAN-AI-DZ/AegisFlow/blob/master/LICENSE).
+This project is distributed under the [GNU General Public License v3.0](https://github.com/ASEAN-AI-DZ/AegisFlowAI/blob/master/LICENSE).
+
+---
+
+_**AegisFlow AI – Connecting devices, enabling smart cities.**_

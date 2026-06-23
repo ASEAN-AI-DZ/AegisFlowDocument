@@ -1,117 +1,102 @@
 # 💰 Wallet Service
 
-**Port:** 3007  
-**Database:** PostgreSQL (shared database)  
-**Status:** 🟡 In Development
-
-The Wallet Service manages the CityPoint reward system, allowing users to earn points for contributing useful reports and redeem points for rewards in the AegisFlow system.
+> CityPoint & Community Incentive System - AegisFlow AI Platform.
 
 ---
 
-## Key Features
+## Purpose
 
-### 💰 CityPoint Wallet Management
+The **Wallet Service** manages the **CityPoint** reward system, an initiative designed to encourage active community participation in urban resilience and hazard monitoring through the AegisFlow AI platform:
 
-- **Create user wallet**
-  - Auto-create on registration
-  - Default wallet per user
-  - Initial balance: 0 points
+1. **Encouraging Citizen Contributions**
+   - Award CityPoints to citizens when they submit verified, accurate incident reports (flooding, accidents, infrastructure damage).
+   - Reward contributions that help validate system data (e.g., verifying active flood warning accuracy at their location).
 
-- **Check balance**
-  - View current points
-  - Transaction history
-  - Expiring points
+2. **Wallet & Transaction Management**
+   - Each AegisFlow user is provisioned a digital wallet to accumulate CityPoints.
+   - Maintain transparent transactional history ledger records ensuring fair point distributions.
 
-- **Transfer points**
-  - Transfer between users
-  - Gift points
-  - Bulk transfers (admin)
-
-### 🏆 Points Earning System
-
-- **Earn from activities**
-  - Submit valid report: +10 points
-  - Report confirmed: +20 points
-  - Report resolved: +30 points
-  - Daily check-in: +2 points
-
-- **Special bonus points**
-  - Active users: +100 points/month
-  - Milestone rewards
-  - Event bonuses
-
-### 🎁 Reward Redemption
-
-- **Vouchers & discounts**
-  - Shopping vouchers
-  - Service discounts
-  - Gift cards
-
-- **Urban services**
-  - Reduced public service fees
-  - Priority incident processing
-  - Premium feature access
-
-- **Donations**
-  - Community donations
-  - Aid for disadvantaged citizens
-  - Environmental projects
-
-### 📊 Transaction History
-
-- **Track transactions**
-  - Full history
-  - Filter by type
-  - Search transactions
-
-- **Transaction types**
-  - Earn (points earned)
-  - Redeem (points spent)
-  - Bonus (rewards)
-  - Transfer (transferred)
-  - Expire (expired)
-
----
-
-## API Endpoints
-
-```bash
-# Get wallet info
-GET /api/wallet/{userId}
-
-# Earn points
-POST /api/wallet/{userId}/earn
-{
-  "amount": 30,
-  "reason": "report_resolved",
-  "referenceId": "incident_001"
-}
-
-# Redeem points
-POST /api/wallet/{userId}/redeem
-{
-  "amount": 100,
-  "rewardId": "voucher_001"
-}
-
-# Get transaction history
-GET /api/wallet/{userId}/transactions?type=earn&limit=20
-
-# Get leaderboard
-GET /api/wallet/leaderboard?period=monthly&limit=10
-```
+3. **Rewards Redemption & Welfare Benefits**
+   - Allow users to redeem CityPoints for partner discount vouchers, municipal service discounts, or public goods.
+   - Strengthen citizen-municipality engagement.
 
 ---
 
 ## Technology Stack
 
-- **Runtime**: Node.js + Express
-- **Database**: PostgreSQL
-- **Cache**: Redis (balance caching)
-- **Events**: Kafka (transaction events)
+| Component | Technology |
+|---|---|
+| **Runtime** | Node.js (TypeScript) |
+| **Framework** | Express.js / Fastify |
+| **Database** | PostgreSQL (Transactions & Balances) |
+| **Cache** | Redis (Fast balance lookup) |
+| **Messaging** | RabbitMQ / Kafka (Consuming transaction trigger events) |
+
+---
+
+## Core Features
+
+### 1. CityPoint Wallet Management
+- **Automatic Wallet Provisioning**: Instantly create a wallet whenever a new user registers on the AegisFlow platform.
+- **Balance & Ledger Queries**: Fetch current point balances and transaction histories in real-time.
+- **Transaction Security**: Digitally sign and log point updates (debits/credits) to ensure auditability.
+
+### 2. Points Accrual Mechanism (Earning)
+- **Incident Reporting**: Earn points when a submitted incident report (e.g. flooded road) is verified and marked useful.
+- **Data Validation (Crowdsourcing)**: Earn points for validating active AI forecasts (e.g. confirming "Yes, this street is indeed flooded").
+- **Community Interaction**: Reward altruistic behaviors helping others during emergency situations.
+
+### 3. Redemption Subsystem (Redemption)
+- **Vouchers & Coupons**: Redeem points for shopping, dining, or retail discount coupons from partner merchants.
+- **Public Services**: Deduct municipal fees (e.g. public parking or waste collection fees) using earned points.
+- **Charity Donations**: Convert CityPoints to cash donations sent directly to disaster relief or climate adaptation funds.
+
+---
+
+## System Integration
+
+- **[Incident Service](../IncidentService/Readme.md)**: Dispatches reward triggers when citizen reports are resolved successfully.
+- **[Notification Service](../NotificationService/Readme.md)**: Alerts users upon point earnings or new voucher redemption options.
+- **[AIML Service](../AIMLService/Readme.md)**: Runs AI checks to grade the quality and reliability of user reports before issuing points.
+- **Mobile App**: Primary client interface for citizens to manage wallets and redeem rewards.
+
+---
+
+## API Endpoints (Examples)
+
+### Balance Query
+```bash
+GET /api/wallet/balance
+Authorization: Bearer <token>
+
+Response:
+{
+  "balance": 1250,
+  "currency": "CityPoint",
+  "lastUpdated": "2026-04-21T14:30:00Z"
+}
+```
+
+### Transaction History
+```bash
+GET /api/wallet/transactions?limit=5
+```
+
+---
+
+## Deployment
+
+### Docker
+```bash
+docker-compose up -d wallet-service
+```
 
 ---
 
 ## 📄 License
 
-This project is distributed under the [GNU General Public License v3.0](https://github.com/ASEAN-AI-DZ/AegisFlow/blob/master/LICENSE).
+This project is distributed under the [GNU General Public License v3.0](https://github.com/ASEAN-AI-DZ/AegisFlowAI/blob/master/LICENSE).
+
+---
+
+_**AegisFlow AI – Small contributions, major impact for the city.**_

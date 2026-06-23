@@ -1,4 +1,4 @@
-# 🚀 AegisFlow AI Getting Started Guide
+# 🚀 Getting Started with AegisFlow AI
 
 > _"From theory to practice — Deploy AegisFlow AI today"_
 
@@ -6,27 +6,27 @@
 
 ## 📋 System Requirements
 
-### Prerequisites
-- **Node.js**: v16+
+### Preliminary Setup
+- **Node.js**: v16+ 
 - **npm** or **yarn**: v7+
 - **PostgreSQL**: v12+
-- **PostGIS**: v3.0+ (PostgreSQL extension)
+- **PostGIS**: v3.0+ (extension for PostgreSQL)
 - **Docker** (optional, but recommended)
 
 ### Environment
 - **OS**: Linux, macOS, or Windows (WSL2)
 - **RAM**: Minimum 8GB
-- **Disk**: 20GB (for data and models)
+- **Disk**: 20GB (for containing data and models)
 
 ---
 
-## 🔧 Quick Setup (5 minutes)
+## 🔧 Quick Start (5 minutes)
 
 ### Step 1: Clone Repository
 
 ```bash
-git clone https://github.com/asean-ai/aegisflow.git
-cd aegisflow
+git clone https://github.com/ASEAN-AI-DZ/AegisFlowAI.git
+cd AegisFlowAI
 ```
 
 ### Step 2: Install Dependencies
@@ -43,7 +43,7 @@ Create a `.env` file in the root directory:
 
 ```env
 # Database
-DATABASE_URL=postgresql://user:password@localhost:5432/aegisflow_db
+DATABASE_URL=postgresql://aegis_user:aegis_pass@localhost:5432/aegisflow_db
 POSTGIS_ENABLED=true
 
 # AI Core
@@ -63,10 +63,10 @@ MAPBOX_TOKEN=your_mapbox_token
 
 ```bash
 npm run migrate
-npm run seed  # (if sample data is needed)
+npm run seed  # (if flood sample data is needed)
 ```
 
-### Step 5: Run the Application
+### Step 5: Run Application
 
 ```bash
 npm start
@@ -84,7 +84,7 @@ The application will run at `http://localhost:3000`
 docker-compose build
 ```
 
-### Step 2: Start Containers
+### Step 2: Run Container
 
 ```bash
 docker-compose up -d
@@ -107,13 +107,13 @@ All services will be running:
 ## 📊 Project Structure
 
 ```
-aegisflow/
+aegisflow-ai/
 ├── src/
 │   ├── services/           # Microservices
-│   │   ├── DigitalTwin/   # GIS & Map engine
+│   │   ├── GISMap/        # GIS & Map engine
 │   │   ├── Prediction/    # AI prediction
-│   │   ├── Simulation/    # What-If scenario
-│   │   └── Dashboard/     # Decision support
+│   │   ├── Routing/       # Safe Routing engine
+│   │   └── Dashboard/     # Decision support & Vulnerability
 │   ├── pages/              # Frontend pages
 │   ├── css/                # Styling
 │   └── api/                # API routes
@@ -140,10 +140,10 @@ Open browser: `http://localhost:5173`
 
 ### 3. Create a Test Project
 
-1. Log in with demo account
-2. Select "Create New Scenario"
-3. Draw a road on the map
-4. View prediction results
+1. Log in with a demo account.
+2. Select "Find Safe Routing".
+3. Set a start point and end point on the map.
+4. View flood segment warning results and the calculated optimal detour route.
 
 ---
 
@@ -159,19 +159,19 @@ sudo service postgresql status
 docker-compose ps postgres
 ```
 
-### Error: "Port 3000 already in use"
+### Error: "Port 3000 is already in use"
 
 ```bash
-# Find process using port 3000
+# Find the process using port 3000
 lsof -i :3000
 
-# Or specify a different port
+# Or specify another port
 PORT=3001 npm start
 ```
 
 ### Error: "AWS credentials not found"
 
-Check that the `.env` file contains `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`. Or configure AWS CLI:
+Check if your `.env` file contains `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`. Or configure AWS CLI:
 
 ```bash
 aws configure
@@ -181,9 +181,9 @@ aws configure
 
 ## 📚 Next Steps
 
-- [System Architecture](./Architecture.md) – Understand the detailed design
-- [Build Without Docker](./BUILD_WITHOUT_DOCKER.md) – If you prefer not to use Docker
-- [Services](./Services/README.md) – Learn about each microservice
+- [System Architecture](./Architecture.md) – Learn detailed design
+- [Installation without Docker](./BUILD_WITHOUT_DOCKER.md) – If you do not want to use Docker
+- [Core Services](./Services/README.md) – Learn about each microservice
 - [API Documentation](./Services/README.md) – List of API endpoints
 
 ---
@@ -193,7 +193,7 @@ aws configure
 ### Hot Reload Frontend
 
 ```bash
-npm run dev  # Automatically reloads when code changes
+npm run dev  # Automatically reload when code changes
 ```
 
 ### Debug Backend
@@ -213,16 +213,16 @@ npm run seed
 
 ## 🆘 Need Help?
 
-- 📖 See [System Architecture](./Architecture.md) for more design details
-- 🐛 Report bugs: [GitHub Issues](https://github.com/ASEAN-AI-DZ/AegisFlow/issues)
-- 💬 Discussions: [GitHub Discussions](https://github.com/ASEAN-AI-DZ/AegisFlow/discussions)
+- 📖 Review [System Architecture](./Architecture.md) to understand more about design
+- 🐛 Report bugs: [GitHub Issues](https://github.com/ASEAN-AI-DZ/AegisFlowAI/issues)
+- 💬 Discussions: [GitHub Discussions](https://github.com/ASEAN-AI-DZ/AegisFlowAI/discussions)
 
 ---
 
 ## 📄 License
 
-This project is distributed under the **GNU General Public License v3.0**. See the [LICENSE](./License.md) file for details.
+This project is distributed under the **GNU General Public License v3.0**. See the [LICENSE](./License.md) file for more details.
 
 ---
 
-© 2025 AegisFlow AI – Developed with ❤️ by the ASEAN-AI-DZ Team
+© 2026 AegisFlow AI – Developed with ❤️ by ASEAN-AI-DZ Team

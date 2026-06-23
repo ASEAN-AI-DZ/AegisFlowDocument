@@ -1,6 +1,6 @@
 # 🏗️ AegisFlow AI System Architecture
 
-> _"The foundational design for the GIS & Map & AI Prediction Platform"_
+> _"Foundational design for GIS & Map & AI platform for Smart Urban Management"_
 
 ---
 
@@ -15,21 +15,21 @@ AegisFlow AI is designed with a modern **Microservices** architecture, ensuring:
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │                    Frontend Layer                           │
-│  (Vite + Vanilla JS, Leaflet/Mapbox, Charts.js)            │
+│  (Vite + Vanilla JS, Leaflet/Mapbox, Charts.js)             │
 └────────────────┬────────────────────────────────────────────┘
                  │
 ┌────────────────▼────────────────────────────────────────────┐
 │              API Gateway & Load Balancer                    │
-│                  (Nginx / Node.js)                          │
+│                  (Node.js  / Nginx)                         │
 └────────────────┬────────────────────────────────────────────┘
                  │
     ┌────────────┼────────────┬────────────┐
     │            │            │            │
     ▼            ▼            ▼            ▼
 ┌─────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐
-│ Digital │ │   AI     │ │Simulation│ │Dashboard │
-│  Twin   │ │Prediction│ │  Engine  │ │  Service │
-│ Service │ │ Service  │ │          │ │          │
+│GIS & Map│ │   AI     │ │ Routing  │ │Dashboard │
+│ Service │ │Prediction│ │  Engine  │ │  Service │
+│         │ │ Service  │ │          │ │          │
 └─────────┘ └──────────┘ └──────────┘ └──────────┘
     │            │            │            │
     └────────────┼────────────┼────────────┘
@@ -50,28 +50,28 @@ AegisFlow AI is designed with a modern **Microservices** architecture, ensuring:
 ## 🔧 Core Components
 
 | Component | Technology | Purpose |
-|-----------|------------|---------|
-| **Frontend** | Vite, Vanilla JS, Leaflet, Charts.js | User interface, interactive maps |
+|----------|----------|---------|
+| **Frontend** | Vite, Vanilla JS, Leaflet, Charts.js | User interface, interactive flood mapping |
 | **API Gateway** | Node.js + Express / Nginx | Routing, Load balancing, Authentication |
-| **GIS & Map** | Node.js, PostGIS, Real-time engine | City modeling, real-time updates |
-| **AI Prediction** | Amazon Bedrock + Nova | Traffic forecasting, environmental alerts |
-| **Simulation** | Agent-Based Model, Python FastAPI | What-if scenario simulation |
-| **Dashboard** | Node.js + EJS/Pug | Data visualization, Impact Score, Radar Chart |
-| **IoT Adapter** | Node.js, MQTT | Receive data from sensors, cameras, weather |
-| **Message Queue** | Apache Kafka / RabbitMQ | Event streaming, async processing |
-| **Cache** | Redis | Session, caching, real-time data |
-| **Database** | PostgreSQL + PostGIS | Geospatial and historical data storage |
+| **GIS & Map** | Node.js, PostGIS, WebSockets | Road network graph modeling, real-time flood updates |
+| **AI Prediction** | Amazon Bedrock + Nova, FastAPI | Flood point forecasting, isolated zone simulation |
+| **Routing Engine** | Python FastAPI, Graph Algorithms | Safe evacuation routing, excluding flooded nodes |
+| **Dashboard** | Node.js + EJS/Pug | Data rendering, Vulnerability Score, Radar Chart |
+| **IoT Adapter** | Node.js, MQTT / HTTP | Ingests data from water level sensors, pumping stations, weather |
+| **Message Queue** | Apache Kafka / RabbitMQ | Event streaming, async flood status synchronization |
+| **Cache** | Redis | Session, caching of safe routes, real-time data |
+| **Database** | PostgreSQL + PostGIS | Spatial data storage, flood history, user coordinates |
 
 ---
 
 ## 🌐 Main Data Flows
 
-### 1. Receiving External Data
+### 1. Receiving Data from External Sources
 
 ```
-Sensors/Cameras/APIs
+Sensors/Weather APIs/Crowdsourcing
         ↓
-   MQTT Broker
+   API/MQTT Broker
         ↓
   IoT Adapter
         ↓
@@ -81,13 +81,12 @@ Sensors/Cameras/APIs
 ```
 
 **Data includes:**
-- 📷 Camera feeds (traffic, flooding)
-- 🌡️ IoT sensors (temperature, humidity, water level, pollution)
-- 🌤️ Weather data (OpenWeatherMap API, NOAA)
-- 🚗 Real-time traffic data
-- 📱 Citizen app reports
+- 🌊 IoT Sensors (water level, drainage pipe flows)
+- 🌤️ Weather data (OpenWeatherMap API, precipitation)
+- 🚗 Real-time traffic road status
+- 📱 Crowdsourced flood reports from citizens
 
-### 2. Updating GIS & Map
+### 2. Updating Dynamic Spatial Model
 
 ```
 Raw Data (Kafka)
@@ -95,110 +94,101 @@ Raw Data (Kafka)
 GIS & Map Service
         ↓
 1. Validate & Normalize
-2. Update Graph Model
-3. Publish Events
+2. Update Graph Network Weights
+3. Publish Flood Events
         ↓
 PostgreSQL + PostGIS
         ↓
-Dashboard / Visualization
+Dashboard / Map Visualizations
 ```
 
-**GIS & Map includes:**
-- City network graph
-- Nodes: roads, intersections, infrastructure, zones
-- Edges: connections between points
-- Real-time state: flow, congestion, water level, etc.
+**Dynamic Spatial Model includes:**
+- Traffic network Graph
+- Nodes: intersections, residential hubs, rescue docking points
+- Edges: road segments
+- Real-time status: dry, minor flooding, deep flooding, blocked.
 
-### 3. AI Predictions
+### 3. AI Prediction & Alerting
 
 ```
-GIS & Map State (Current + Historical)
+Spatial State (Current + Historical Rain)
         ↓
 AI Prediction Service
         ↓
 1. Feature Engineering
-2. Call Amazon Nova
-3. Parse Structured Output
+2. Run ML Models (LSTM/Hybrid)
+3. Evaluate Risks
         ↓
 Predictions:
-- Traffic Flow (15-60 min ahead)
-- Flooding Risk (next 2-6 hours)
-- Cascade Effects
+- Flood Depth (1-3 hours ahead)
+- Vulnerability Score (Prioritize Rescue)
+- Cascade Isolation Effects
         ↓
 Dashboard + Alerts
 ```
 
-**Prediction models:**
-- 🚗 **Traffic Flow**: LSTM/Transformer on historical data
-- 💧 **Flooding Risk**: Combines weather API + sensor data + rainfall prediction
-- 📊 **Impact Cascade**: Agent-based simulation
+**Prediction Models:**
+- 💧 **Flood Risk**: Identifies upcoming flood zones (Hybrid ML model).
+- 🚑 **Vulnerability**: Scores rescue priority using LLM (Amazon Nova).
+- 📊 **Impact Cascade**: Simulates isolation of alley networks.
 
-### 4. What-If Simulation
+### 4. Safe Routing
 
 ```
-User Input:
-- Drag & drop new infrastructure
-- Change traffic signal timing
-- Add construction area
+User Request (Origin -> Destination)
         ↓
 Routing Engine
         ↓
-1. Clone current state
-2. Apply changes
-3. Run Agent-Based Model
-4. Predict outcomes (5-10 years)
+1. Fetch current flood exclusions (nodes to avoid)
+2. Run Graph Algorithm (Dijkstra/A* modified)
+3. Calculate ETA
         ↓
 Results:
-- Economic Impact
-- Environmental Impact
-- Accessibility Changes
-- Equity Score
-- Safety Assessment
+- Safe Route Waypoints
+- Avoided Flood Nodes
+- Evacuation Shelter Suggestions
         ↓
-Impact Score + Radar Chart
+User App Navigation
 ```
 
 ---
 
 ## 🔄 Emergency Response Flow
 
-When an incident occurs (accident, flooding):
+When severe flooding or a critical inundation event is detected:
 
 ```
-Incident Detected
+Severe Flooding Detected
         ↓
-Incident Service
+Alert & Prediction Service
         ↓
-1. Create Incident Record
-2. Trigger AI Analysis
+1. Identify Critical Flood Zones
+2. Trigger AI Routing Exclusions
         ↓
-3a. Identify Fastest Route (for ambulance/fire truck)
-3b. Predict Cascade Effects (traffic congestion spread)
-3c. Recommend Evacuation Routes
+3a. Calculate Safe Routes (for ambulance/rescue boats)
+3b. Predict Isolated Communities (Cascade Effects)
+3c. Evaluate Vulnerability Score for Supply Drop
         ↓
 Notification Service
         ↓
 Send Alerts to:
-- Emergency Response Teams
-- Citizens (via app)
-- Traffic Management Centers
+- Rescue Teams (High Priority Zones)
+- Citizens (Route Change Push Notifications)
+- Operation Center Dashboard
 ```
 
 ---
 
-## 📡 Main API Endpoints
+## 📡 Core API Endpoints
 
 ```
-POST   /api/scenarios              # Create simulation scenario
-GET    /api/scenarios/:id          # Get scenario details
-POST   /api/scenarios/:id/simulate # Run simulation
-GET    /api/digital-twin/state     # Current GIS & Map state
-GET    /api/predictions/traffic    # Traffic forecast
-GET    /api/predictions/flooding   # Flood warnings
-GET    /api/map/zones              # Zone data for map rendering
-POST   /api/incidents              # Report incident
-GET    /api/incidents/:id          # Incident details
-POST   /api/emergency/routes       # Find emergency route
+GET    /api/map/flood-zones        # Get coordinates of current flood zones
+POST   /api/predictions/flooding   # Forecast flood depth levels
+POST   /api/predictions/routing    # Query safe routing detours
+POST   /api/predictions/isolation  # Assess isolated residential zones
+POST   /api/crowdsource/report     # Citizen reports of flood points
+GET    /api/dashboard/vulnerability# Fetch priority rescue list
+POST   /api/emergency/dispatch     # Dispatch rescue units
 ```
 
 ---
@@ -208,28 +198,24 @@ POST   /api/emergency/routes       # Find emergency route
 ### PostgreSQL + PostGIS
 
 ```sql
--- GIS & Map (Network Graph)
-TABLE zones              -- Areas/regions
-TABLE intersections     -- Intersections
-TABLE roads            -- Roads
-TABLE infrastructure   -- Infrastructure (hospitals, schools, etc.)
+-- GIS Network (Traffic network graph)
+TABLE zones              -- Administrative zones/regions
+TABLE intersections      -- Intersection nodes
+TABLE roads              -- Road edges
+TABLE critical_facilities-- Hospitals, medical centers, rescue stations
 
 -- Real-time State
-TABLE zone_state       -- Zone state (density, congestion, flooding)
-TABLE traffic_flow     -- Traffic flow over time
-TABLE water_level      -- Water levels from sensors
+TABLE flood_state        -- Current flood status by area
+TABLE road_status        -- Road segment availability (Open/Closed)
+TABLE sensor_water_level -- Raw IoT sensor readings
 
--- Predictions
-TABLE predictions      -- Prediction results
-TABLE forecast_log     -- Prediction history
+-- Predictions & Analysis
+TABLE flood_predictions  -- Forecast water levels history and results
+TABLE vulnerability_logs -- Vulnerability score over time
 
--- Scenarios & Simulations
-TABLE scenarios        -- User-created scenarios
-TABLE simulation_results -- Simulation results
-
--- Incidents
-TABLE incidents        -- Incidents (accidents, flooding, etc.)
-TABLE incident_events  -- Related events
+-- Crowdsourcing & Incidents
+TABLE citizen_reports    -- Citizen-reported flood points
+TABLE rescue_missions    -- Dispatch tickets for rescue units
 ```
 
 ---
@@ -248,24 +234,24 @@ docker-compose --file docker-compose.prod.yml up -d
 ```
 
 ### Scaling
-- **Horizontal**: Run multiple instances of each service
-- **Vertical**: Increase resources (CPU, RAM)
-- **Caching**: Use Redis to cache heavy queries
+- **Horizontal**: Spawn multiple instances of API and Routing Engine
+- **Vertical**: Scale up resources (CPU, RAM) for AI inference
+- **Caching**: Utilize Redis to cache route matrices and safe coordinates
 
 ---
 
 ## 🔐 Security
 
-- **Authentication**: JWT tokens
-- **Authorization**: Role-based access control (RBAC)
-- **Encryption**: HTTPS/TLS, database encryption at rest
-- **Rate Limiting**: Prevent abuse
-- **Audit Logs**: Record important changes
+- **Authentication**: JWT tokens for Admin and Users
+- **Authorization**: Role-based access control (Citizen vs Rescue Team vs Authority)
+- **Encryption**: HTTPS/TLS, encryption of sensitive data (user coordinates)
+- **Rate Limiting**: Prevent abuse, spam reports, or denial of routing requests
+- **Audit Logs**: Maintain logs for dispatch history and emergency notifications
 
 ---
 
 ## 📚 Related Documentation
 
-- [Services Documentation](./Services/README.md)
+- [AI Prediction Service](./Services/AIMLService/Readme.md)
 - [API Reference](./Services/README.md)
 - [Installation Guide](./Installation.md)

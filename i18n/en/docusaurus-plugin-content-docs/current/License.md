@@ -1,46 +1,50 @@
-# 📄 Giấy phép — GNU General Public License v3.0
+---
+id: License
+slug: /License
+---
+# 📄 License — GNU General Public License v3.0
 
-AegisFlow AI được phân phối dưới **GNU General Public License v3.0**.
+AegisFlow AI is distributed under the **GNU General Public License v3.0**.
 
-## Tóm tắt
+## Summary
 
-| Điều khoản | Chi tiết |
-|-----------|---------|
-| **Phiên bản** | GPL v3.0 |
-| **Năm** | 2026 |
-| **Tác giả** | DTU_DZ_T1 Team |
-| **Tổ chức** | ASEAN-AI-DZ |
+| Term | Details |
+| --- | --- |
+| **Version** | GPL v3.0 |
+| **Year** | 2026 |
+| **Author** | DTU - AEGISFLOW AI |
+| **Organization** | ASEAN-AI-DZ |
 
-## Quyền của bạn
+## Your Rights
 
-- ✅ **Sử dụng** tự do cho mọi mục đích
-- ✅ **Nghiên cứu** và thay đổi mã nguồn
-- ✅ **Phân phối** lại cho người khác
-- ✅ **Cải tiến** và phân phối phiên bản cải tiến
+- ✅ **Use** freely for any purpose
+- ✅ **Study** and modify the source code
+- ✅ **Redistribute** to others
+- ✅ **Improve** and distribute modified versions
 
-## Điều kiện
+## Conditions
 
-- 📋 Phân phối lại phải kèm mã nguồn (hoặc cung cấp quyền truy cập)
-- 📋 Các bản phái sinh phải dùng cùng giấy phép GPL v3.0
-- 📋 Ghi rõ các thay đổi so với bản gốc
-- 📋 Giữ nguyên thông báo bản quyền và giấy phép
+- 📋 Redistribution must include source code (or provide access to it)
+- 📋 Derivative works must use the same GPL v3.0 license
+- 📋 Clearly state changes made to the original
+- 📋 Keep copyright notice and license intact
 
-## Miễn trừ trách nhiệm
+## Disclaimer
 
-Phần mềm được cung cấp **"AS IS"** (nguyên trạng), không có bảo hành dưới bất kỳ hình thức nào, dù rõ ràng hay ngụ ý.
+The software is provided **"AS IS"**, without warranty of any kind, express or implied.
 
 ---
 
-## Văn bản đầy đủ
+## Full Text
 
-Xem toàn bộ nội dung giấy phép GPL v3.0 tại:
+See the full content of the GPL v3.0 license at:
 
 👉 **[https://www.gnu.org/licenses/gpl-3.0.html](https://www.gnu.org/licenses/gpl-3.0.html)**
 
-Hoặc xem file `LICENSE` trong thư mục gốc của repository:
+Or check the `LICENSE` file in the root directory of the repository:
 
-👉 **[GitHub — LICENSE](https://github.com/ASEAN-AI-DZ/AegisFlowDocument/blob/master/LICENSE)**
+👉 **[GitHub — LICENSE](https://github.com/ASEAN-AI-DZ/AegisFlowAI/blob/master/LICENSE)**
 
 ---
 
-_Copyright © 2026 DTU_DZ_T1 Team — ASEAN-AI-DZ_
+_Copyright © 2026 DTU - AEGISFLOW AI — ASEAN-AI-DZ_

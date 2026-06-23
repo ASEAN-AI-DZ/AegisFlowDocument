@@ -12,7 +12,7 @@ AegisFlow AI được phân phối dưới **GNU General Public License v3.0**.
 | ------------- | -------------- |
 | **Phiên bản** | GPL v3.0       |
 | **Năm**       | 2026           |
-| **Tác giả**   | DTU_DZ_T1 Team |
+| **Tác giả**   | DTU - AEGISFLOW AI |
 | **Tổ chức**   | ASEAN-AI-DZ    |
 
 ## Quyền của bạn
@@ -47,4 +47,4 @@ Hoặc xem file `LICENSE` trong thư mục gốc của repository:
 
 ---
 
-_Copyright © 2026 DTU_DZ_T1 Team — ASEAN-AI-DZ_
+_Copyright © 2026 DTU - AEGISFLOW AI — ASEAN-AI-DZ_

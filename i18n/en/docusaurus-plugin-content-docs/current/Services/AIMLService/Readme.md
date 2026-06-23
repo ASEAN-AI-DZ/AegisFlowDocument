@@ -1,37 +1,37 @@
 # 🤖 AI Prediction Service
 
-> AI prediction technology — Traffic flow forecasting, flood warnings, cascade effects
+> AI Forecasting Technology - Flood alerting, evacuation routing, and isolation assessment.
 
 ---
 
 ## Purpose
 
-**AI Prediction Service** provides intelligent forecasts for AegisFlow AI:
+The **AI Prediction Service** provides intelligent forecasts and rationales for AegisFlow AI:
 
-1. **🚗 Traffic Flow Prediction**
-   - Forecast 15–60 minutes ahead
-   - Identify forming hotspots
-   - Suggest traffic signal adjustments
+1. **💧 Flood Prediction**
+   - Forecast flood levels 1-3 hours in advance.
+   - Identify upcoming flooding black spots.
+   - Estimate inundation depth and affected boundaries.
 
-2. **💧 Flood Warning**
-   - Combines weather data + water level sensors
-   - Early warning 2–6 hours in advance
-   - Evacuation recommendations, safe routing
+2. **🚗 Emergency Evacuation Routing**
+   - Exclude deeply flooded road segments from the traffic network graph.
+   - Search for the safest detours.
+   - Coordinate routes for ambulances, fire engines, and rescue boats.
 
-3. **📊 Cascade Effects**
-   - Simulate how an incident propagates through the system
-   - Forecast which areas will be affected
+3. **📊 Cascade Isolation Effects**
+   - Simulate how flooded segments trigger cascading blockages on neighboring alleys.
+   - Evaluate the risk of residential areas becoming completely stranded.
 
-4. **💰 Socioeconomic Impact**
-   - Forecast GDP, employment, social equity
-   - Used for scenario simulation
+4. **🚑 Vulnerability Score**
+   - Score the rescue priority for different areas.
+   - Inform decision-making on allocating rescue boats and distribution of relief supplies.
 
 ---
 
 ## Technology Stack
 
 | Component | Technology |
-|-----------|-----------|
+|---|---|
 | **AI Core** | Amazon Bedrock + Amazon Nova |
 | **Time Series** | TensorFlow/PyTorch (LSTM, Transformer) |
 | **Framework** | Python FastAPI |
@@ -42,71 +42,66 @@
 
 ## Prediction Models
 
-### 1. Traffic Flow Prediction (LSTM)
+### 1. Flood Risk Prediction (Hybrid ML)
 
 **Input:**
-- Traffic history (past 7 days, hourly)
-- Current state (from GIS & Map)
-- Events (accidents, road works, etc.)
-- Calendar features (day of week, holidays)
+- Weather data (OpenWeatherMap / Meteorological APIs).
+- IoT water level sensors (real-time telemetry).
+- Historical flooding logs.
+- Geospatial terrain data (elevation, slope, drainage capacity).
 
 **Output:**
-- Traffic flow forecast (15, 30, 60 minutes ahead)
-- Confidence score (0–100%)
+- Water level depth forecasts (15, 30, 60, 180 minutes horizon).
+- Flooding risk category (NONE, LOW, MEDIUM, HIGH, CRITICAL).
 
-**Accuracy:** RMSE < 15% (with sufficient data)
+**Accuracy:** RMSE < 10cm (given sufficient sensor density).
 
-### 2. Flooding Risk (Hybrid)
+### 2. Safe Routing Engine (Dynamic Network AI)
 
 **Input:**
-- Weather data (from OpenWeatherMap API)
-- Water level sensors (real-time from IoT)
-- Rainfall history (past 3 months)
-- Geographic characteristics (elevation, gradient)
+- Base City Graph network topology.
+- Real-time nodes/edges flagged with critical flood levels.
+- Vehicle type (ambulance, standard car, rescue boat).
+- Active congestion levels.
 
 **Output:**
-- Risk level: NONE, LOW, MEDIUM, HIGH, CRITICAL
-- Affected zones (list of zone IDs)
-- Recommended actions (evacuate, close roads, ...)
+- List of safe route coordinates (waypoints).
+- Excluded/avoided flood nodes.
 
-**Accuracy:** Precision > 85% (detecting true flooding)
+**Accuracy:** Route safety compliance rate > 98%.
 
-### 3. Cascade Effects (Agent-Based)
+### 3. Cascade Isolation Effects (Agent-Based)
 
 **Input:**
-- Initial incident (location, type)
-- Current city state
-- Network topology (graph)
+- Active flood nodes cutting off key arterial segments.
+- Minor alley network layout.
+- Population density data.
 
 **Output:**
-- Predicted impact zones
-- Timeline of effects
-- Severity estimation
+- List of completely isolated residential zones.
+- Flooding timeline (estimated duration of isolation).
+- Severity estimation rating.
 
-### 4. Socioeconomic Impact (Nova LLM)
+### 4. Vulnerability Score (Nova LLM)
 
 **Input:**
-- Scenario description (text)
-- Context (city data, demographics)
+- Demographic data (zones containing high elderly population, nursing homes, hospitals).
+- Current flood levels.
+- Food/medical supply warehouse status.
 
 **Output:**
-- Impact assessment (structured JSON):
+- Priority rescue report (structured JSON):
   ```json
   {
-    "economic": {
-      "gdp_change": 2.5,
-      "employment": 1200,
-      "business_hours_saved": 45000
+    "priority_score": 95,
+    "affected_population": 1200,
+    "critical_facilities": ["District Hospital", "Medical Center"],
+    "rescue_requirements": {
+      "boats_needed": 3,
+      "food_packages": 500,
+      "urgency_level": "CRITICAL"
     },
-    "social": {
-      "accessibility": 35,
-      "equity_score": 0.65,
-      "job_creation": "medium"
-    },
-    "environmental": {
-      "co2_reduction": 12.5,
-      "air_quality": 18
-    }
+    "reasoning": "High isolation index. The district hospital is currently experiencing power outages... [AI generated]"
   }
   ```
 
@@ -114,87 +109,83 @@
 
 ## API Endpoints
 
-### Traffic Prediction
+### Flood Risk Prediction
 
 ```bash
-POST /api/predictions/traffic/{roadId}
+# Predict flood risk for a specific road
+POST /api/predictions/flooding/risk/{roadId}
 {
-  "horizonMinutes": 60
+  "horizonMinutes": 120
 }
 
 Response:
 {
   "roadId": "...",
   "predictions": [
-    { "timestamp": "2026-03-31T11:00:00Z", "flow": 1200, "confidence": 92 },
-    { "timestamp": "2026-03-31T11:15:00Z", "flow": 1350, "confidence": 89 }
+    { "timestamp": "2026-04-21T11:00:00Z", "expectedDepth": 0.4, "risk": "HIGH" },
+    { "timestamp": "2026-04-21T12:00:00Z", "expectedDepth": 0.8, "risk": "CRITICAL" }
   ],
-  "alert": "System overload expected at 11:00, recommend signal optimization"
+  "alert": "Water level rising rapidly, recommend immediate road closure"
 }
 ```
 
-### Flooding Alert
+### Safe Routing Engine
 
 ```bash
-GET /api/predictions/flooding/city
-
-Response:
+# Fetch safe route detour
+POST /api/predictions/routing/safe-path
 {
-  "overallRisk": "MEDIUM",
-  "affectedZones": [
-    {
-      "zoneId": "...",
-      "riskLevel": "HIGH",
-      "affectedArea": 1250,
-      "recommendedActions": ["evacuate", "close_roads_3_4"],
-      "timeToFlooding": 180
-    }
-  ],
-  "weatherForecast": {
-    "rainfall": 120,
-    "intensity": "heavy",
-    "duration": 240
-  }
-}
-```
-
-### Cascade Effects
-
-```bash
-POST /api/predictions/cascade
-{
-  "incidentType": "traffic_accident",
-  "location": { "lat": 16.0544, "lon": 108.2022 },
-  "severity": "severe"
+  "origin": { "lat": 16.0544, "lon": 108.2022 },
+  "destination": { "lat": 16.0782, "lon": 108.2201 },
+  "vehicleType": "ambulance"
 }
 
 Response:
 {
-  "primaryImpactZones": [...],
-  "secondaryImpactZones": [...],
+  "status": "success",
+  "eta": 20,
+  "route": [...], // Array of coordinates
+  "avoidedNodes": ["node-le-duan", "node-pham-van-dong"]
+}
+```
+
+### Cascade Isolation Effects
+
+```bash
+# Evaluate isolated residential zones
+POST /api/predictions/cascade/isolation
+{
+  "triggerNodes": ["node-le-duan"],
+  "floodDepth": 1.2
+}
+
+Response:
+{
+  "primaryIsolatedZones": [...],
+  "secondaryIsolatedZones": [...],
   "timeline": {
-    "5mins": "Traffic congestion at direct roads",
-    "15mins": "Spread to neighboring intersections",
-    "30mins": "Alternative routes overwhelmed"
+    "1h": "Evacuation path to residential zone A is completely cut off",
+    "2h": "Flood depth blocks passage of high-clearance vehicles"
   }
 }
 ```
 
-### Socioeconomic Impact
+### Vulnerability Score
 
 ```bash
-POST /api/predictions/impact
+# Score rescue priority
+POST /api/predictions/vulnerability
 {
-  "scenarioId": "...",
-  "timeframe": 10
+  "zoneId": "zone-hai-chau",
+  "currentFloodLevel": "CRITICAL"
 }
 
 Response:
 {
-  "economic": { "gdp_change": 2.5 },
-  "social": { "accessibility": 35 },
-  "environmental": { "co2_reduction": 12.5 },
-  "explanation": "This project improves healthcare accessibility by 35% because... [AI generated]"
+  "priority_score": 95,
+  "critical_facilities": ["Hospital A"],
+  "rescue_requirements": { "boats_needed": 3, ... },
+  "explanation": "Critical priority zone due to high risk to isolated elderly residents."
 }
 ```
 
@@ -205,15 +196,15 @@ Response:
 ### Data Pipeline
 
 ```
-Raw Data (IoT, APIs)
+Raw Data (IoT water levels, Weather APIs)
     ↓
 Data Validation & Cleaning
     ↓
-Feature Engineering
+Feature Engineering (GIS & Network Topology Graph)
     ↓
 Train/Test Split (80/20)
     ↓
-Model Training (LSTM, etc.)
+Model Training (LSTM, Graph Networks)
     ↓
 Model Validation & Evaluation
     ↓
@@ -224,9 +215,9 @@ Production Deployment
 
 ### Retraining Schedule
 
-- **Traffic Model**: Daily (12 AM UTC)
-- **Flooding Model**: When rainfall > threshold
-- **Cascade Model**: Weekly (Sundays 2 AM)
+- **Flood Prediction Model**: Daily (12 AM UTC) and emergency retrain when Rainfall > 100mm/h.
+- **Routing Engine**: Real-time graph edge weights recalculated every 5 minutes.
+- **Cascade/Vulnerability Models**: Weekly (Sundays 2 AM).
 
 ---
 
@@ -235,23 +226,24 @@ Production Deployment
 ### From Dashboard Service
 
 ```typescript
-// Get traffic forecast to display warnings
-const predictions = await predictionService.getTrafficPrediction(roadId);
-if (predictions.alert) {
-  displayWarning(predictions.alert);
+// Query flood risk alerts to draw blockages on map
+const floodRisk = await predictionService.getFloodRisk(roadId);
+if (floodRisk.alert) {
+  displayWarning(floodRisk.alert);  // "Water level rising rapidly, recommend immediate road closure"
+  map.drawExclusionZone(roadId);
 }
 ```
 
 ### From Notification Service
 
 ```typescript
-// Send flood warnings to citizens
-const flooding = await predictionService.getFloodingAlert();
-if (flooding.overallRisk === 'CRITICAL') {
-  notificationService.broadcastAlert({
-    title: "Emergency Flood Warning",
-    zones: flooding.affectedZones,
-    actions: ["Evacuate", "Avoid these roads"]
+// Suggest detours to citizens traveling towards flooded areas
+const safeRoute = await predictionService.getSafeRouting(userLoc, homeLoc);
+if (safeRoute.avoidedNodes.length > 0) {
+  notificationService.sendAppPush(userId, {
+    title: "Safe Detour Alert",
+    message: "The road ahead is deeply flooded. The system has calculated a safe detour route.",
+    routeData: safeRoute.route
   });
 }
 ```
@@ -265,7 +257,7 @@ if (flooding.overallRisk === 'CRITICAL') {
 ```dockerfile
 FROM python:3.11-slim
 WORKDIR /app
-RUN pip install fastapi uvicorn tensorflow torch
+RUN pip install fastapi uvicorn tensorflow torch osmnx psycopg2-binary
 COPY requirements.txt .
 RUN pip install -r requirements.txt
 COPY . .
@@ -279,7 +271,8 @@ CMD ["uvicorn", "main:app", "--host", "0.0.0.0"]
 AWS_REGION=us-east-1
 AWS_ACCESS_KEY_ID=...
 AWS_SECRET_ACCESS_KEY=...
-DIGITAL_TWIN_API=http://digital-twin:3001
+GIS_DATABASE_URL=postgresql://user:pass@postgis:5432/aegisgis
+WEATHER_API_KEY=...
 KAFKA_BROKER=kafka:9092
 MODEL_PATH=/models
 ```
@@ -289,17 +282,17 @@ MODEL_PATH=/models
 ## Performance Targets
 
 | Metric | Target |
-|--------|--------|
-| Traffic prediction RMSE | < 15% |
-| Flooding alert precision | > 85% |
-| Cascade prediction latency | < 30 seconds |
+|---|---|
+| Flood prediction RMSE | < 10cm |
+| Safe route calculation latency | < 100ms |
+| Route safety compliance | > 98% |
 | API response time | < 500ms |
 | Model inference time | < 1 second |
 
 ---
 
-## Related Services
+## Related Documentation
 
-- [GIS & Map Service](../DigitalTwinService/) – Data source
-- [Simulation Service](../AnalyticsService/) – Uses forecasts for simulation
-- [Notification Service](../NotificationService/) – Distributes alerts
+- [GIS & Map Service](../DigitalTwinService/) – GIS Map engine details
+- [Analytics Service](../AnalyticsService/) – Flood trend analysis
+- [Notification Service](../NotificationService/) – Disseminate warning alerts to citizens

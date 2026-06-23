@@ -1,35 +1,36 @@
-# 🏙️ AegisFlow AI — GIS & Map & AI Platform for Smart Urban Management
+# 🌊 AegisFlow AI — GIS & Map & AI Platform for Smart Urban Management
 
 <div align="center">
-  <a href="https://aegisflow-ai-six.vercel.app/">
-    <img src="https://img.shields.io/badge/🚀_Website-AegisFlow-00C853?style=for-the-badge" alt="Demo System"/>
+  <a href="https://aegis-flow-ai.vercel.app/">
+    <img src="https://img.shields.io/badge/🚀_Website-AegisFlow_AI-00C853?style=for-the-badge" alt="Demo System"/>
   </a>
   <br/>
 
-  [![License: GPL-3.0](https://img.shields.io/badge/License-GPL%203.0-blue.svg)](./License.md)
+  [![License: GPL-3.0](https://img.shields.io/badge/License-GPL%203.0-blue.svg)](/License)
 
+  <br/>
 </div>
 
-![AegisFlow AI Banner](@site/static/img/Banner1.png)
+![Banner](@site/static/img/Banner1.png)
 
-> _"From reactive response to proactive prediction — AI is the urban planner's partner"_
+> _"From reactive response to proactive prediction — AI is the shield protecting the community from natural disasters"_
 
-**AegisFlow AI** is an advanced platform integrating **GIS & Map** and **Artificial Intelligence**, designed to transform urban management from reactive to predictive and proactive. The system models an entire city as a dynamic network graph, integrating real-time data from cameras, IoT sensors, weather data, and citizen reports to support fast, accurate, and sustainable decision-making.
+**AegisFlow AI** is an advanced platform integrating **Geographic Information Systems (GIS)** and **AI (Artificial Intelligence)**, designed to transform urban flood management and response from reactive to predictive and proactive. The system models the entire transportation network as a dynamic network graph, integrating real-time data from water level sensors, weather data, and citizen reports to support fast, safe evacuation and precise rescue distribution.
 
 ---
 
-## 📋 Urban Context
+## 📋 Urban Reality
 
-### Background
+### Context
 
-As rapid urbanization unfolds in major cities, traditional urban management systems face serious challenges.
+Under the context of rapid urbanization and climate change in major cities across the country, traditional natural disaster response systems are facing severe challenges.
 
 **Current Situation:**
 
-- Growing vehicle density leads to prolonged congestion during peak hours.
-- Urban flooding frequently occurs due to extreme rainfall and climate change.
-- Most current systems focus only on real-time **monitoring** (monitoring) but lack the ability to **predict** and **simulate** the impacts of incidents.
-- Slow response times, difficulty in optimizing traffic coordination, and lack of timely decision-support tools for urban authorities.
+- Extreme heavy rain and high tides cause frequent flooding, paralyzing urban traffic.
+- Key arterial roads are unexpectedly cut off, posing danger to citizens and delaying ambulances and fire engines during critical life-or-death moments.
+- Most current systems only focus on monitoring and recording (monitoring) incidents after they have occurred, lacking the ability to forecast early (prediction) flood levels and warn about safe routes.
+- Response times are slow, coordinating rescue forces is suboptimal, and disaster management committees lack timely decision-support tools.
 
 ---
 
@@ -37,167 +38,188 @@ As rapid urbanization unfolds in major cities, traditional urban management syst
 
 ### Short-term Goals
 
-1. **Build a comprehensive GIS & Map** for the city
-2. **Deploy AI predictions:**
-   - Traffic flow from historical and real-time data
-   - Environmental risks based on weather data + IoT sensors
-3. **Support simulation:** Allow authorities to test scenarios (new roads, traffic flow changes, urban zone development) before real deployment
-4. **Decision Support Dashboard:** Provide an intuitive interface for authorities and citizens
+1. **Build a comprehensive real-time interactive map** updating the flood situation across the urban area.
+2. **Deploy early AI prediction:**
+   - Flood black spots based on terrain data, rainfall history, and pumping stations.
+   - Environmental risks based on weather data + IoT sensors.
+3. **Support routing:** Automatically exclude deep flood segments and search for the safest detour route before citizens travel.
+4. **Decision Support Dashboard:** Provide an intuitive interface for authorities to deploy rescue resources.
 
 ### Long-term Goals
 
-- Deeply integrate into existing urban management systems of major cities, becoming a core platform supporting intelligent real-time operations and decision-making.
-- Expand applications to key sectors: energy management, environmental monitoring and protection, public transportation optimization, urban planning, and other public services.
+- Deeply integrate into Smart City operation centers and National Disaster Prevention and Control centers, becoming a core platform supporting operations during the rainy and stormy season.
+- Expand applications to other natural disaster forecasting areas, including: landslide alerts, infrastructure risk assessment, and sustainable urban planning resilient to climate change.
 
 ---
 
 ## 💡 Solution – AegisFlow AI
 
-**AegisFlow AI** is a comprehensive platform combining **GIS & Map** with **AI**, working as a _"living digital mirror"_ of the city. Every road, every intersection, every sensor is **synchronized in real-time**. By simulating the city's "heartbeat" in a digital environment, we shift from **data monitoring** to **impact prediction** and **response optimization**.
+**AegisFlow AI** is the answer. It is a comprehensive platform combining **Geospatial Data (GIS & Map)** with **AI**, acting as a **"digital shield"** of the city during disasters. Every road and every intersection has its risk levels synchronized in real-time. By understanding the "breath" of weather and terrain, we shift from **reporting damage** to **predicting flood levels** and **protecting lives**.
 
 ---
 
-## 🔬 What is a GIS & Map?
+## 🔬 What is a Dynamic Analysis & Prediction System?
 
 ### Definition
 
-A **GIS & Map** is a **virtual replica** of a physical entity — it can be a machine, production process, building, or even an entire city.
+Unlike static map systems, **AegisFlow AI** operates a **Dynamic Spatial Model**. This is a live data layer overlaid on the physical map of the city to assess the interaction between infrastructure and rainfall.
 
-**A GIS & Map is NOT:**
+**This system is NOT:**
 
-- ❌ A static image or simple 3D model
-- ❌ A snapshot like a photograph
+- ❌ A generic weather forecasting application.
+- ❌ A standard traffic update bulletin like Google Maps (which often still suggests the shortest path even if it is deeply flooded).
 
-**A GIS & Map IS:**
+**The AegisFlow dynamic prediction system IS:**
 
-- ✅ A **dynamic system**, continuously updated with real-time data
-- ✅ Integrates data from: sensors, IoT, cameras, satellite data…
-- ✅ **Accurately reflects** the state of the "original"
-- ✅ **Two-way:** real data → updates digital twin; digital twin decisions → applied back to reality
+- ✅ A **connected network**, constantly updated with flood points in real-time.
+- ✅ Integrated multi-stream data: weather APIs, water level sensors, and crowdsourced citizen reports.
+- ✅ An **accurate reflection** of road availability and safety.
+- ✅ **Two-way:** The community reports flooding → AI maps the risk areas; AI computes routes → Rescue teams reach the scene fastest.
 
-### GIS & Map Capabilities
+### Core Capabilities
 
-1. **Simulation:** Test scenarios without changing reality
-2. **Prediction:** Forecast incidents, failures, future performance
-3. **Optimization:** Find the best operation method, save costs, reduce risks
-4. **Two-way Analysis:** Real Data ↔ GIS & Map → accurate decision-making
+1. **Alerting:** Projecting high-risk areas hours in advance.
+2. **Predicting:** Calculating groundwater levels and localized rising flow rates.
+3. **Optimizing:** Finding the safest evacuation routes, keeping away from "flood sinks".
+4. **Centralized Analysis:** Suggesting relief station placement based on isolated population density.
+
+---
+
+## 🌐 How Does AegisFlow AI Work?
+
+### Concept
+
+Imagine using an application like **Waze or Google Maps**, but **specifically designed to survive natural disasters** – a routing engine highly responsive to flooding.
+
+With AegisFlow AI, the entire transportation network is modeled as a **graph network** (Nodes = intersections, Edges = road segments). The weights of these "Edges" change dynamically based on rainfall and flood sensors.
+
+When a historic storm hits, the system does not just display current flood points, but **immediately performs spatial reasoning** for the next **1-3 hours**:
+
+- Where will floodwaters spread and cut off which main roads?
+- Which detours (non-flooded) should ambulances and fire trucks take to reach hospitals fastest?
+- Which residential areas are about to be completely isolated and need priority rescue boats early?
+- What is the optimal allocation plan for emergency supplies to which points?
 
 ---
 
 ## 👥 Target Audience
 
-![AegisFlow features](@site/static/img/doituong.png)
+![Audience](@site/static/img/doituong.png)
 
-### 👨‍💼 1. Urban Planners & Government Officials
+### 👨‍💼 1. Planners & Government Officials
 
-- Forecast the impact of infrastructure projects before deployment
-- Simulate scenarios to optimize decisions
-- Data dashboard for fast, accurate decision-making
+- Forecast the impact of infrastructure projects before implementation.
+- Simulate what-if scenarios to optimize decisions.
+- Data dashboards for quick, accurate decision-making.
 
 ### 👷 2. Traffic Engineers & Urban Specialists
 
-- Detailed analysis of traffic flow and risks
-- Simulate effectiveness of corresponding measures
-- Optimize traffic infrastructure
+- Detailed analysis of traffic flow and flood risks.
+- Simulate the effectiveness of corresponding response measures.
+- Optimize traffic infrastructure during crises.
 
 ### 🏛️ 3. Community Organizations & NGOs
 
-- All citizens can use the tool to propose projects
-- Transparency of economic, social, and environmental impacts
+- All citizens can use the tool to propose projects and feedback.
+- Make economic, social, and environmental impacts transparent.
 
 ### 📚 4. Researchers & Students
 
-- Access open data for research
-- Model complex urban problems
+- Access open data for research.
+- Model complex urban problems.
+- Verify hypotheses in a safe environment.
 
 ---
 
-## 🚀 Core Features
+## 🚀 Core Features of AegisFlow AI
 
-![AegisFlow functionality](@site/static/img/chucnang.png)
+![Features](@site/static/img/chucnang.png)
 
-### 1. Real-time GIS & Map
+### 1. **Real-time Flood Radar**
 
-- Model the entire city as a network graph
-- Continuous updates from traffic cameras, IoT sensors, weather data
-- Display the actual state of each area on an interactive map
+- Instantly plot flood point coordinates onto the base map graph.
+- Continuously update from crowdsourced user reports and IoT sensors.
+- Display flooding severity and warning colors by region cluster.
 
-### 2. AI Predictions
+### 2. **AI Flood Risk/Drainage Prediction**
 
-- **Traffic flow forecast** for the near future
-- **Flood warnings** based on weather data + water level sensors
+- **Forecast areas at risk of flooding** in the near future using Machine Learning.
+- Analyze correlations between weather API data and low-lying terrain.
 
-### 3. Decision Support Dashboard
+### 3. **Rescue Decision Support Dashboard**
 
-- **Impact Score:** Composite impact score (0–100)
-- **Radar Chart:** Visualize 5 indicators (Economic, Environmental, Accessibility, Equity, Safety)
+- **Vulnerability Score:** Score regional rescue priority (areas with elderly people/flooded hospitals receive higher priority scores).
+- Visually track flood report points, numbers of stranded people, and expansion trends.
 
-### 4. Emergency Priority Support
+### 4. **Safe Routing & Evacuation Support**
 
-- When an accident/flood occurs, AI identifies the **fastest route** for ambulances/fire trucks
-- **Cascade warnings:** Forecast which areas traffic congestion will spread to
-- **Evacuation guidance:** Recommend safe routes for citizens
+- When main roads turn into rivers, the AI activates the "Routing Engine" to discard deeply flooded nodes and calculate the **safest route** for motorbikes/cars.
+- **Evacuation Guidance:** Suggest nearest high-ground community shelters.
+- Directly warn citizens driving near hazard zones.
 
 ---
 
 ## 📚 Technology Stack
 
-| Component                   | Technology             | Role in System                                                                                                                                |
-| --------------------------- | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Frontend Interface**      | `Leaflet.js`           | Display interactive maps, draw data overlay layers such as flood zones, traffic flows, and GIS & Map entities.                                |
-| **Backend Logic**           | `Node.js (Express)`    | Acts as the central hub for API coordination, session management, and database connections.                                                   |
-| **Artificial Intelligence** | `Amazon Bedrock`       | Provides infrastructure to run large language models and prediction models, supporting scenario analysis and urban resource optimization.     |
-| **Database**                | `PostgreSQL + PostGIS` | Store and process complex spatial data, perform geometric operations such as intersection checks, buffer creation, and distance calculations. |
-| **Real-time Connectivity**  | `WebSockets`           | Maintain continuous bidirectional connections, ensuring IoT sensor data is updated on the map in real-time.                                   |
+| Component | Technology | Role in System |
+| --- | --- | --- |
+| **Frontend** | `Leaflet.js` | Displays the interactive map, drawing data overlays such as flood zones, traffic flows, and GIS & Map entities. |
+| **Backend** | `Node.js (Express)` | Central hub coordinating APIs, session management, and database connections. |
+| **AI Engine** | `Amazon Bedrock` | Provides infrastructure to run large language models and prediction models, supporting scenario analysis and urban resource optimization. |
+| **Database** | `PostgreSQL + PostGIS` | Stores and processes complex spatial data, performing geometric operations like intersection checks, buffer creation, and distance calculations. |
+| **Real-time** | `WebSockets` | Maintains continuous two-way connections, ensuring IoT sensor data is updated on the map in real-time. |
 
 ---
 
 ## 🌟 AegisFlow AI vs. Current Systems
 
-| Criteria              | ❌ Current Systems                            | ✅ AegisFlow AI                                                           |
-| --------------------- | --------------------------------------------- | ------------------------------------------------------------------------- |
-| Approach              | Monitoring only – past & present data         | Monitoring + Prediction – from past & present data → future               |
-| Response              | Reactive – only acts after incidents          | Proactive – forecasts and prevents before occurrence                      |
-| Prediction Capability | No forecasting – unknown future               | Forecasting available – supports early decision-making                    |
-| Scenario Analysis     | None or very limited                          | What-if simulation – test first, visualize results                        |
-| Risk & Cost           | High risk – wasted budget, unintended impacts | Reduced risk – optimized cost and efficiency                              |
-| Transparency          | Low, difficult to verify                      | Transparent + Validated – AI explains, open data, community participation |
+| Criteria | ❌ Current Maps & Systems | ✅ AegisFlow AI |
+| --- | --- | --- |
+| Approach | Only monitors congestion – shows empty roads even if flooded | Route exclusions – Automatically blocks flooded roads and finds detours |
+| Response | Reactive – citizens enter flooded areas before knowing | Proactive – forecasts and sends flood-avoiding routes in advance |
+| Coordination | Lack of allocation system, rescue based on intuition | Assesses vulnerability, automatically polarizes high-priority areas |
+| Data Update | Very slow, waiting for local news articles | Crowdsourcing Realtime + IoT + WebSockets displays immediately |
+| Scenario Analysis | None or very limited spatial calculations | Analyzes low points, maps risk boundaries using PostgreSQL (PostGIS) |
+| Safety Risk | Dangerous, many vehicles stall or get trapped | Safe – Ensures citizens find safe routes home |
 
 ---
 
 ## 📖 Key Documentation
 
-- [System Architecture](./Architecture.md) – Understand the overall design
+- [System Architecture](./Architecture.md) – Learn about the overall design
 - [Getting Started](./GettingStarted.md) – Install and run AegisFlow AI
-- [Detailed Installation](./Installation.md) – Step-by-step installation guide
+- [Detailed Installation](./Installation.md) – Step-by-step installation instructions
 - [Services](./Services/README.md) – Learn about each microservice
 
 ---
 
 ## 🎯 Conclusion
 
-AegisFlow AI is a comprehensive **GIS & Map + AI** solution for smart urban traffic management. The system not only monitors in real-time but also has the ability to predict cascade impacts of incidents, propose optimal solutions, and support infrastructure planning simulation.
+AegisFlow AI is a comprehensive **GIS Map + AI Prediction** solution for urban flood management and response. The system not only updates real-time alerts but is also capable of searching safe evacuation routes, coordinating rescue, and protecting citizens' lives in extreme weather conditions.
 
-The project not only solves today's traffic problems but also contributes to building the foundation for **sustainable smart cities** in Da Nang and other Vietnamese cities in the future.
+With modern technology and a Microservices architecture, AegisFlow AI brings clear practical value: reducing life safety risks, accelerating emergency response, and supporting tight decision-making.
 
-**AegisFlow AI – Smart prediction, safer cities.**
+The project does not just handle today's urgent flooding issues but builds a solid digital defense layer for **Resilient Cities** in Vietnam's future.
+
+**AegisFlow AI – Unblocking flows, protecting lives safely.**
 
 ---
 
 ## 📞 Contact & Contribution
 
-- **GitHub Repository:** https://github.com/ASEAN-AI-DZ/AegisFlow
+### Project Contact
+
+- **GitHub Repository:** https://github.com/ASEAN-AI-DZ/AegisFlowAI
 - **Contribution:** Fork repository → create feature branch → open Pull Request
-- **Bug Report:** Create GitHub Issue with detailed description and steps to reproduce
+- **Bug Reporting:** Create a GitHub Issue with a detailed description and steps to reproduce
+- **New Feature Proposals:** Join discussions and improve AI Models
 
 ---
 
 ## 📄 License
 
-This project is distributed under the **GNU General Public License v3.0**. See the [LICENSE](./License.md) file for more details.
+This project is distributed under the **GNU General Public License v3.0**. See the [LICENSE](/License) file for more details.
 
 ---
 
-_**Developed with ❤️ towards smart, sustainable cities**_
-
-_"Technology serving people, minimizing climate risks, and improving quality of life."_
+_**Developed with ❤️ towards safe, resilient cities**_

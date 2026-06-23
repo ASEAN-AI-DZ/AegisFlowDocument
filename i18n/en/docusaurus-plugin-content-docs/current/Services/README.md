@@ -1,6 +1,6 @@
 # 🏗️ AegisFlow AI Microservices
 
-> All modular services that make up the AegisFlow AI platform
+> All modular services that make up the AegisFlow AI platform.
 
 ---
 
@@ -16,8 +16,8 @@
         │             │             │
         ▼             ▼             ▼
     ┌────────┐  ┌──────────┐  ┌──────────┐
-    │Digital │  │Prediction│  │Simulation│
-    │ Twin   │  │ & Alert  │  │ What-If  │
+    │GIS &   │  │ Prediction│ │Simulation│
+    │ Map    │  │ & Alert   │  │ What-If  │
     └────────┘  └──────────┘  └──────────┘
         │             │             │
         └─────────────┼─────────────┘
@@ -37,12 +37,12 @@
 
 ### 1. **GIS & Map Service** ⭐
 
-**Purpose**: Real-time city modeling
+**Purpose**: Modeling the entire city in real-time.
 
-- 🌍 Build a city network graph
-- 📍 Integrate geospatial data (PostGIS) for roads, intersections, and infrastructure
-- ⏱️ Continuous updates from sensors, cameras, IoT
-- 💾 Store state + history
+- 🌍 Build the traffic network graph of the city.
+- 📍 Integrate geospatial data (PostGIS) for roads, intersections, and buildings.
+- ⏱️ Update state continuously from sensors, traffic cameras, and IoT.
+- 💾 Store spatial states and historical data.
 
 **Technologies**: Node.js, PostgreSQL + PostGIS, Redis, Kafka  
 **API Port**: 3001  
@@ -60,12 +60,12 @@ curl http://localhost:3001/api/digital-twin/zones
 
 ### 2. **AI Prediction Service** 🤖
 
-**Purpose**: Forecast & alert on incidents
+**Purpose**: Forecasting & alerting urban incidents.
 
-- 🚗 **Traffic Prediction**: Traffic flow forecasting (15–60 minutes ahead)
-- 💧 **Flooding Alert**: Flood warnings based on weather + sensors
-- 📊 **Cascade Effects**: Simulate cascade impacts
-- 💰 **Socioeconomic Impact**: Predict economic-social impacts (with Amazon Nova)
+- 🚗 **Traffic Prediction**: Forecast traffic flow (15–60 minutes ahead).
+- 💧 **Flooding Alert**: Predict flooding risk based on weather APIs + IoT water level sensors.
+- 📊 **Cascade Effects**: Simulate cascading blockage impacts on the graph.
+- 💰 **Socioeconomic Impact**: Forecast socioeconomic impact of incidents using Amazon Nova.
 
 **Models**: LSTM, Transformer, Agent-Based, LLM  
 **AI Framework**: Amazon Bedrock + Nova  
@@ -85,13 +85,13 @@ curl http://localhost:8002/api/predictions/flooding/city
 
 ### 3. **Simulation & What-If Service** 🎮
 
-**Purpose**: Test scenarios before real-world deployment
+**Purpose**: Simulating scenarios before actual deployment.
 
-- 🏗️ Drag-and-drop infrastructure (roads, hospitals, schools, etc.)
-- 🔄 Run agent-based simulation (5–10 years)
-- 📈 Predict impacts: economic, environmental, social, traffic
-- 📊 A/B testing scenario comparison
-- 📄 Generate detailed reports with Impact Score & Radar Chart
+- 🏗️ Allow drag-and-drop of mock infrastructure (new roads, hospitals, schools, shelters).
+- 🔄 Run agent-based simulations (5–10 years projection).
+- 📈 Forecast multidimensional impact: economic, environmental, social, traffic.
+- 📊 Compare A/B testing scenarios.
+- 📄 Generate detailed reports with an Impact Score and Radar Chart.
 
 **Technologies**: Python, Mesa (ABM), FastAPI, Ray  
 **API Port**: 8003  
@@ -111,30 +111,30 @@ curl -X POST http://localhost:8003/api/scenarios/scenario_123/simulate
 
 ### 4. **Emergency Response & Notification Service** 🚨
 
-**Purpose**: Emergency alerts & evacuation guidance
+**Purpose**: Emergency warning & evacuation guidance.
 
-- 🚑 **Fastest Route For Emergency**: Coordinate routes for ambulances
-- 🗺️ **Evacuation Guidance**: Recommend safe evacuation routes
-- 📱 **Multi-channel Alerts**: Push, SMS, Email, Web
-- 📊 **Cascade Broadcasting**: City-wide alert broadcasting
-- 📍 **Geolocation-based**: Only alert citizens in affected zones
+- 🚑 **Fastest Route For Emergency**: Calculate optimal collision-free routes for ambulances and fire trucks.
+- 🗺️ **Evacuation Guidance**: Recommend safe evacuation detours avoiding high flood zones.
+- 📱 **Multi-channel Alerts**: Push notifications, SMS, Email, Web.
+- 📊 **Cascade Broadcasting**: Distribute alerts city-wide or district-wide.
+- 📍 **Geolocation-based**: Target alerts strictly to citizens in the affected boundaries.
 
 **Technologies**: Node.js, Express, MongoDB, Firebase FCM, Kafka  
 **API Port**: 3005  
 **Documentation**: [NotificationService/Readme.md](./NotificationService/Readme.md)
 
 ```bash
-# Broadcast flooding alert
+# Broadcast flood alert
 curl -X POST http://localhost:3005/api/emergency/broadcast-alert \
   -H "Content-Type: application/json" \
   -d '{
     "type": "flooding",
     "severity": "critical",
     "affectedZones": ["zone_1", "zone_2"],
-    "message": "Flood Warning"
+    "message": "Critical flooding alert"
   }'
 
-# Find emergency route
+# Request emergency route
 curl -X POST http://localhost:3005/api/emergency/fastest-route \
   -H "Content-Type: application/json" \
   -d '{
@@ -148,13 +148,13 @@ curl -X POST http://localhost:3005/api/emergency/fastest-route \
 
 ### 5. **IoT Service** 📡
 
-**Purpose**: Receive data from sensors, cameras, and weather APIs
+**Purpose**: Receiving data from sensors, cameras, and weather feeds.
 
-- 📷 Traffic cameras (RTMP stream)
-- 🌡️ IoT sensors (water level, temperature, pollution)
-- 🌤️ Weather data (OpenWeatherMap, NOAA API)
-- 🚗 Traffic flow (Grab, HERE Maps, etc.)
-- 📱 Reports from app (citizen reports)
+- 📷 Traffic camera feeds (RTMP streams).
+- 🌡️ IoT sensors (water level, temperature, pollution index).
+- 🌤️ Weather data feeds (OpenWeatherMap, NOAA APIs).
+- 🚗 Floating car data (Grab, HERE Maps, etc.).
+- 📱 Mobile app crowdsourcing reports (citizen uploads).
 
 **Technologies**: Node.js, MQTT Broker, Kafka Producer  
 **Documentation**: [IoTService/Readme.md](./IoTService/Readme.md)
@@ -163,13 +163,13 @@ curl -X POST http://localhost:3005/api/emergency/fastest-route \
 
 ### 6. **Dashboard Service** 📊
 
-**Purpose**: Data visualization & decision support
+**Purpose**: Decision support visualizer.
 
-- 🗺️ **Interactive Map**: Real-time city state display
-- 📈 **Impact Score** (0–100): Composite impact score of scenarios
-- 📊 **Radar Chart**: 5 indicators (Economic, Environmental, Accessibility, Equity, Safety)
-- 🎯 **Comparison View**: Compare multiple scenarios
-- 💡 **AI Explanation**: "Why is this project good/bad?" (Natural language)
+- 🗺️ **Interactive Map**: Renders live city state overlay.
+- 📈 **Impact Score** (0–100): Calculated score assessing scenario viability.
+- 📊 **Radar Chart**: 5 indexes (Economic, Environmental, Accessibility, Equity, Safety).
+- 🎯 **Comparison View**: Cross-compare multiple simulation scenarios.
+- 💡 **AI Explanation**: Natural language rationale of why a scenario is positive or negative.
 
 **Technologies**: React/Vue, D3.js, Chart.js, Leaflet  
 **Documentation**: [AnalyticsService/Readme.md](./AnalyticsService/Readme.md)
@@ -178,12 +178,12 @@ curl -X POST http://localhost:3005/api/emergency/fastest-route \
 
 ### 7. **Incident Service** 🚨
 
-**Purpose**: Incident lifecycle management
+**Purpose**: Managing incident lifecycle.
 
-- 📝 Record incidents (accidents, flooding, fires)
-- 🏷️ Classification & Prioritization (automatically via AI)
-- 📊 Track resolution progress
-- 📈 Statistics & Reporting
+- 📝 Record and register incidents (traffic accidents, severe flooding, structure fire).
+- 🏷️ Automatic AI classification and prioritization.
+- 📊 Track responder progress and resolution status.
+- 📈 Incident statistics and reporting.
 
 **Documentation**: [IncidentService/Readme.md](./IncidentService/Readme.md)
 
@@ -191,17 +191,59 @@ curl -X POST http://localhost:3005/api/emergency/fastest-route \
 
 ### 8. **Search Service** 🔍
 
-**Purpose**: Fast data search & query
+**Purpose**: Fast search and spatial query matching.
 
-- 🔎 Full-text search (hospitals, schools, etc.)
-- 📍 Spatial search (radius-based)
-- 📊 Real-time indexing (OpenSearch/Elasticsearch)
+- 🔎 Full-text indexing (hospitals, schools, shelters).
+- 📍 Spatial radius search.
+- 📊 Real-time search indexing (OpenSearch/Elasticsearch).
 
 **Documentation**: [SearchService/Readme.md](./SearchService/Readme.md)
 
 ---
 
-## 🔄 Data Flows
+### 9. **FloodEye Service** 🌊
+
+**Purpose**: AI computer vision for flood detection.
+
+- 📸 Analyze street camera image feeds using Deep Learning (CNN, ResNet).
+- 🌊 Estimate flood water depth levels visually.
+- 🔔 Automate real-time flood warning triggers.
+- 📍 Correlate data with GIS layers.
+
+**Technologies**: Python, FastAPI, TensorFlow/PyTorch, PostGIS  
+**Documentation**: [FloodEyeService/Readme.md](./FloodEyeService/Readme.md)
+
+---
+
+### 10. **Media Service** 📷
+
+**Purpose**: Storage and optimization of media assets.
+
+- 📹 Live traffic camera streaming (RTMP/HLS).
+- 🖼️ Store incident evidence images and citizen upload uploads.
+- ⚙️ Media compression and conversion pipeline.
+- ☁️ Object storage integration (AWS S3, GCS).
+
+**Technologies**: Node.js, FFmpeg, AWS S3  
+**Documentation**: [MediaService/Readme.md](./MediaService/Readme.md)
+
+---
+
+### 11. **Wallet Service** 💰
+
+**Purpose**: Community contribution system (CityPoint).
+
+- 🪙 Earn points for submitting verified and valuable incident reports.
+- 🎁 Redeem points for public transit tickets, city parking, or other rewards.
+- 📊 Maintain citizen contribution leaderboards.
+- 🛡️ Integrity check of reward tokens.
+
+**Technologies**: Node.js, PostgreSQL, Redis  
+**Documentation**: [WalletService/Readme.md](./WalletService/Readme.md)
+
+---
+
+## 🔄 Core Data Flows
 
 ### Real-time Event Flow
 
@@ -251,7 +293,7 @@ Dashboard displays results
 ## 📋 Service Dependencies
 
 | Service | Depends On | Used By |
-|---------|-----------|---------|
+|---|---|---|
 | **GIS & Map** | IoT Service, Kafka | Prediction, Simulation, Dashboard |
 | **Prediction** | GIS & Map, Weather API | Dashboard, Notification, Simulation |
 | **Simulation** | GIS & Map, Amazon Nova | Dashboard, Incident |
@@ -286,7 +328,7 @@ docker-compose up -d digital-twin
 # Prediction Service
 docker-compose up -d prediction
 
-# Simulation Service
+# Simulation Service  
 docker-compose up -d simulation
 
 # Emergency Response
@@ -303,7 +345,7 @@ docker-compose up -d iot
 
 ## 🔗 API Gateway
 
-All services are exposed through a unified API Gateway at **http://localhost:3000**:
+All services are exposed via a unified API Gateway at **http://localhost:3000**:
 
 ```
 GET  /api/digital-twin/*
@@ -326,12 +368,15 @@ GET  /api/search/*
 - [IoT Service](./IoTService/Readme.md)
 - [Incident Service](./IncidentService/Readme.md)
 - [Search Service](./SearchService/Readme.md)
+- [FloodEye Service](./FloodEyeService/Readme.md)
+- [Media Service](./MediaService/Readme.md)
+- [Wallet Service](./WalletService/Readme.md)
 
 ---
 
 ## 🆘 Troubleshooting
 
-### Service won't start
+### Service fails to start
 
 ```bash
 # Check logs
@@ -344,20 +389,20 @@ docker-compose build --no-cache <service_name>
 docker-compose restart <service_name>
 ```
 
-### API not responding
+### API unresponsive
 
 ```bash
 # Test connection
 curl http://localhost:<PORT>/health
 
-# Check if service is running
+# Check if service container is running
 docker-compose ps
 ```
 
 ### Database connection errors
 
 ```bash
-# Connect to database
+# Connect to database container
 docker-compose exec postgres psql -U aegis_user -d aegisflow_db
 
 # Check tables
@@ -368,25 +413,25 @@ docker-compose exec postgres psql -U aegis_user -d aegisflow_db
 
 ## 💡 Best Practices
 
-1. **Service Communication**: Use Kafka for async, HTTP/REST for sync
-2. **Monitoring**: Use Prometheus + Grafana to monitor performance
-3. **Logging**: Centralize logs with ELK Stack
-4. **Scaling**: If scaling is needed, add replicas via Docker Swarm or Kubernetes
-5. **Security**: Use API Gateway, JWT tokens, RBAC
+1. **Service Communication**: Use Kafka for async communication, HTTP/REST for sync operations.
+2. **Monitoring**: Setup Prometheus + Grafana to monitor system health and latencies.
+3. **Logging**: Centralize logs using the ELK Stack or a similar log consolidator.
+4. **Scaling**: Deploy with Docker Swarm or Kubernetes for high availability and replication.
+5. **Security**: Keep credentials in environment variables, protect endpoints via the API Gateway, and enforce RBAC.
 
 ---
 
 ## 🔄 Updates & Maintenance
 
-- **Weekly**: Monitor logs, check for errors
-- **Monthly**: Update dependencies, security patches
-- **Quarterly**: Performance optimization, new features
-- **As needed**: Hotfixes for critical issues
+- **Weekly**: Audit error logs, verify Kafka queue offsets, check disk space usage.
+- **Monthly**: Apply package security updates, check Redis cache hit ratio.
+- **Quarterly**: Benchmark API response times, optimize heavy PostGIS queries.
+- **As needed**: Address hotfixes for critical security vulnerabilities.
 
 ---
 
 ## 📞 Contact
 
-- 📧 Development: [development@asean-ai.com]
-- 🐛 Bug Reports: [GitHub Issues](https://github.com/ASEAN-AI-DZ/AegisFlow/issues)
-- 💬 Discussions: [GitHub Discussions](https://github.com/ASEAN-AI-DZ/AegisFlow/discussions)
+- 📧 Development: thanhtruong23111999@gmail.com
+- 🐛 Bug Reports: [GitHub Issues](https://github.com/ASEAN-AI-DZ/AegisFlowAI/issues)
+- 💬 Discussions: [GitHub Discussions](https://github.com/ASEAN-AI-DZ/AegisFlowAI/discussions)

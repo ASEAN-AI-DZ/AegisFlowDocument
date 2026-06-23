@@ -6,7 +6,7 @@
   </a>
   <br/>
 
-  [![License: GPL-3.0](https://img.shields.io/badge/License-GPL%203.0-blue.svg)](./License.md)
+  [![License: GPL-3.0](https://img.shields.io/badge/License-GPL%203.0-blue.svg)](/License)
 
   <br/>
   <!-- <a href="./CONTRIBUTING.md">🤝 Đóng Góp</a>  -->
@@ -220,7 +220,7 @@ Dự án không chỉ xử lý vấn đề ngập lụt cấp bách của hôm n
 
 ## 📄 Giấy phép
 
-Dự án này được phân phối dưới **GNU General Public License v3.0**. Xem file [LICENSE](./License.md) để biết thêm chi tiết.
+Dự án này được phân phối dưới **GNU General Public License v3.0**. Xem file [LICENSE](/License) để biết thêm chi tiết.
 
 ---
 
